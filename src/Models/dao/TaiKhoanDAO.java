@@ -17,8 +17,6 @@ public class TaiKhoanDAO {
         TaiKhoan taiKhoan = null;
 
         String query = "SELECT * FROM TAIKHOAN WHERE TENDANGNHAP = ?";
-        System.out.println("Executing query: " + query + " with parameter: " + tenDangNhap);
-
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, tenDangNhap);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -47,8 +45,6 @@ public class TaiKhoanDAO {
         List<TaiKhoan> taiKhoanList = new ArrayList<>();
 
         String query = "SELECT * FROM TAIKHOAN";
-        System.out.println("Executing query: " + query);
-
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -72,8 +68,6 @@ public class TaiKhoanDAO {
     public boolean addTaiKhoan(TaiKhoan taiKhoan) {
         Connection connection = Database_Connection.getConnection();
         String query = "INSERT INTO TAIKHOAN (CHUCVU, TENDANGNHAP, MATKHAU) VALUES (?, ?, ?)";
-        System.out.println("Executing query: " + query + " with parameters: " + taiKhoan);
-
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, taiKhoan.getChucVu());
             preparedStatement.setString(2, taiKhoan.getTenDangNhap());
@@ -93,8 +87,6 @@ public class TaiKhoanDAO {
     public boolean updateTaiKhoan(TaiKhoan taiKhoan) {
         Connection connection = Database_Connection.getConnection();
         String query = "UPDATE TAIKHOAN SET CHUCVU = ?, MATKHAU = ? WHERE TENDANGNHAP = ?";
-        System.out.println("Executing query: " + query + " with parameters: " + taiKhoan);
-
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, taiKhoan.getChucVu());
             preparedStatement.setString(2, taiKhoan.getMatKhau());
@@ -114,8 +106,6 @@ public class TaiKhoanDAO {
     public boolean deleteTaiKhoan(String tenDangNhap) {
         Connection connection = Database_Connection.getConnection();
         String query = "DELETE FROM TAIKHOAN WHERE TENDANGNHAP = ?";
-        System.out.println("Executing query: " + query + " with parameter: " + tenDangNhap);
-
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, tenDangNhap);
             int rowsAffected = preparedStatement.executeUpdate();
@@ -128,6 +118,28 @@ public class TaiKhoanDAO {
 
         return false;
     }
+    // Phương thức thay đổi mật khẩu
+    public boolean changePassword(String username, String currentPassword, String newPassword) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "UPDATE TAIKHOAN SET MATKHAU = ? WHERE TENDANGNHAP = ? AND MATKHAU = ?";
+        try {
+            conn = Database_Connection.getConnection();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, newPassword);
+            stmt.setString(2, username);
+            stmt.setString(3, currentPassword);
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            Database_Connection.closeConnection(conn);
+        }
+    }
+
 
 //    public static void main(String[] args) {
 //        TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();

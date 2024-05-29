@@ -118,16 +118,16 @@ public class LoginFrame extends JFrame {
         String username = textField_tentaikhoan.getText();
         String password = new String(textField_matkhau.getPassword());
         if (taiKhoanService.login(username, password)) {
-//            JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+            // Đăng nhập thành công
             this.dispose(); // Đóng màn hình đăng nhập
-            openHomeFrame(); // Mở màn hình trang chủ
+            openHomeFrame(username); // Mở màn hình trang chủ và truyền username
         } else {
             JOptionPane.showMessageDialog(this, "Tên đăng nhập hoặc mật khẩu không đúng", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    private void openHomeFrame() {
-        HomeFrame homeFrame = new HomeFrame();
+    private void openHomeFrame(String username) {
+        HomeFrame homeFrame = new HomeFrame(username);
         homeFrame.setVisible(true);
     }
 

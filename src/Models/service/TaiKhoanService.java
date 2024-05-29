@@ -20,4 +20,9 @@ public class TaiKhoanService {
             return false;
         }
     }
+
+    public boolean changePassword(String username, String currentPassword, String newPassword) {
+        return taiKhoanDAO.changePassword(username, currentPassword, newPassword);
+    }
+
 }
