@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="IS216_PROJECT_DATABASE" directorySegmentName="seg_0" id="40575562-F011-A300-91E5-F07F0509139A">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjName>IS216_PROJECT_DATABASE</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:48 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<defTableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</defTableSpace>
+<privileges>ALTER ANY ANALYTIC VIEW, INHERIT ANY PRIVILEGES, DROP ANY SQL TRANSLATION PROFILE, ALTER PUBLIC DATABASE LINK, UPDATE ANY CUBE, MANAGE ANY FILE GROUP, MANAGE FILE GROUP, CREATE JOB, DROP ANY CONTEXT, UNDER ANY TABLE, ALTER PROFILE, DROP ANY TRIGGER, DROP ANY SEQUENCE, ALTER ANY INDEX, UNLIMITED TABLESPACE</privileges>
+<quotaItems>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem1" id="645F8872-829D-5016-1D2F-74272C51B32F">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:48 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem2" id="F2B30BA5-715D-E55D-B236-C71F88DBB7EF">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:59 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem3" id="B5B418E8-B2CA-FA53-E2FD-9CA788480ECD">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem4" id="3BBBB993-E462-9D84-205E-48A2655A9B52">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem5" id="9AD35139-D882-C3F8-DE76-47CCFC0D45BC">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:19 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem6" id="13D9F824-246E-A59B-C72D-31BD6862E55C">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:24 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem7" id="C5599CE3-7AE5-E9C4-4193-E58BDF1E0C54">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem8" id="F61C0BDC-BCC2-31AB-541B-8F67F0786321">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:47 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem9" id="E636B885-E58D-12CB-7A2F-190C02331A7C">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:57 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem10" id="D945954E-9D3E-3430-9036-082C050B955E">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:08 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem11" id="331555F7-50BF-E5D4-0885-8F4D2E4763D2">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem12" id="017B6583-7E1D-C6C1-4D72-3AA320A34485">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:18 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem13" id="8A898B3C-1030-313B-0E1D-F22A4D15B866">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:22 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem14" id="1C0BB5FA-2942-6EE1-F983-6895AA3015F9">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem15" id="F651418E-CEAE-9ACE-6427-693252AE716B">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem16" id="C588916E-F402-5A46-33F3-0276DD5EF0F1">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:58:10 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+</QuotaItem>
+</quotaItems>
+</UserOraclev10g>

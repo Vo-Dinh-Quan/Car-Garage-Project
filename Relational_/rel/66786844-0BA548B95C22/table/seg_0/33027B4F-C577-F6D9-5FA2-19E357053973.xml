@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="33027B4F-C577-F6D9-5FA2-19E357053973" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="PHIEUNHAPVTPT">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>PHIEUNHAPVTPT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MAPNVTPT" id="D7727A05-16BF-56DD-E018-099794F6D6BB">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>PHIEUNHAPVTPT</sourceObjSchema>
+<sourceObjName>MAPNVTPT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="THANHTIENNHAP" id="78EADA85-4F99-A1CF-3668-8084FDF68AFC">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>PHIEUNHAPVTPT</sourceObjSchema>
+<sourceObjName>THANHTIENNHAP</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NGAYNHAP" id="26C6AF7E-5144-1C34-0C20-24D54F491DB1">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>PHIEUNHAPVTPT</sourceObjSchema>
+<sourceObjName>NGAYNHAP</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="475CBD6A-0E80-4AEC-E3A8-CB7A539FD609" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="PHIEUNHAPVTPT_PK">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>SYS_C008903</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D7727A05-16BF-56DD-E018-099794F6D6BB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

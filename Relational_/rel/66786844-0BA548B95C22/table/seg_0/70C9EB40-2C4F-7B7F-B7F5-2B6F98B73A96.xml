@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="70C9EB40-2C4F-7B7F-B7F5-2B6F98B73A96" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="HIEUXE">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>HIEUXE</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:19 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MAHX" id="1005FB8C-2DC6-B28B-A248-0EA1CD9674CD">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>HIEUXE</sourceObjSchema>
+<sourceObjName>MAHX</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:19 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TENHIEUXE" id="321474BC-CC7C-8984-B4BB-039C2832350C">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>HIEUXE</sourceObjSchema>
+<sourceObjName>TENHIEUXE</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:19 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="038AC40C-6B2F-4EE5-D944-0FAC94F678CC" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="HIEUXE_PK">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>SYS_C008886</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:19 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1005FB8C-2DC6-B28B-A248-0EA1CD9674CD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

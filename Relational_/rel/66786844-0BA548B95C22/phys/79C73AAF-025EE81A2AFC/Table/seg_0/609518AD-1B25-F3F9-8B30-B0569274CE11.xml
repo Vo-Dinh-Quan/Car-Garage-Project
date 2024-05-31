@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="CT_PHIEUSUACHUA" directorySegmentName="seg_0" id="609518AD-1B25-F3F9-8B30-B0569274CE11">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>02C0CB56-1223-74A3-ECC6-5CA9B186620C</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MATC" id="48FBB893-EADB-EF14-027E-0AA415F573AF">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MACTPSC" id="4957F7E8-592C-6A36-137F-3F6ACA3E128F">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAPSC" id="AE0330AF-4EB5-A364-2ED0-9E728AE67187">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOIDUNG" id="DF6D1D88-B043-A1F6-93FF-8D7F554ABF27">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="THANHTIENND" id="F841DDA1-AF25-E4B3-9A81-F8B4060A790C">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C008897" id="1240EDFA-FCD3-7012-F7B4-618F37A409B8">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C008898" id="A8635996-8F32-97ED-7802-6A7C8C97BF23">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CT_PHIEUSUACHUA_PK" id="2EE025E7-9D30-5449-4485-AF437A665C3E">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<segment>2307F747-2665-D2BB-CAEF-82AB196C3DED</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<indexSegment>2307F747-2665-D2BB-CAEF-82AB196C3DED</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

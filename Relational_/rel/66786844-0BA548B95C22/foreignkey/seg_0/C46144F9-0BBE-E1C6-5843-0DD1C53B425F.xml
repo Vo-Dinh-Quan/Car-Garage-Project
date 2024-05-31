@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C46144F9-0BBE-E1C6-5843-0DD1C53B425F" containerWithKeyObject="CEB2BA04-2D53-1B9F-8954-3D5AFB3706D8" localFKIndex="02961F35-0590-C314-5F3D-AAEF9BA5BCF2" name="SYS_C008890">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>SYS_C008890</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<referredTableLongName>IS216_PROJECT_DATABASE.HIEUXE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>70C9EB40-2C4F-7B7F-B7F5-2B6F98B73A96</referredTableID>
+<keyObject>038AC40C-6B2F-4EE5-D944-0FAC94F678CC</keyObject>
+<referredKeyID>038AC40C-6B2F-4EE5-D944-0FAC94F678CC</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>MAHX</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

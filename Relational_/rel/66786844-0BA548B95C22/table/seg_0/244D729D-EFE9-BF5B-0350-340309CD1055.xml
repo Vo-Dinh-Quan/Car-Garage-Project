@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="244D729D-EFE9-BF5B-0350-340309CD1055" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="VATTUPHUTUNG">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>VATTUPHUTUNG</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MAVTPT" id="884A0272-D7B7-E60A-79D8-59F0834E6DBC">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>VATTUPHUTUNG</sourceObjSchema>
+<sourceObjName>MAVTPT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TENVTPT" id="B98FD3DB-20FB-996C-2E27-B988A2F3522C">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>VATTUPHUTUNG</sourceObjSchema>
+<sourceObjName>TENVTPT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DONGIANHAP" id="CEC363AB-46E4-9B7D-CEAD-EE5353051228">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>VATTUPHUTUNG</sourceObjSchema>
+<sourceObjName>DONGIANHAP</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DONGIABAN" id="444E25EA-DC75-D1C9-80D2-7D4012FF3C63">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>VATTUPHUTUNG</sourceObjSchema>
+<sourceObjName>DONGIABAN</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SOLUONGTON" id="F6EB0ADC-0885-38F7-9050-1CE44E32885E">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>VATTUPHUTUNG</sourceObjSchema>
+<sourceObjName>SOLUONGTON</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AA8019F1-61B7-1B18-2FBE-D420366462C0" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="VATTUPHUTUNG_PK">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>SYS_C008899</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="884A0272-D7B7-E60A-79D8-59F0834E6DBC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

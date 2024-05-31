@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A8B3F13E-3F3D-F5A2-F701-7436D2FA0B40" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="TAIKHOAN">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>TAIKHOAN</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CHUCVU" id="B67DBA26-9CF6-67B4-8CA5-58386D4C67AF">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>TAIKHOAN</sourceObjSchema>
+<sourceObjName>CHUCVU</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TENDANGNHAP" id="185FAC47-8156-FBA7-6398-2C0D2A2EEB6F">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>TAIKHOAN</sourceObjSchema>
+<sourceObjName>TENDANGNHAP</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MATKHAU" id="BFFDE9C6-52A3-483D-A8D7-11EB9C8A5600">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>TAIKHOAN</sourceObjSchema>
+<sourceObjName>MATKHAU</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="CT_SUDUNGVTPT" directorySegmentName="seg_0" id="0E921676-35B9-3A0D-1BC5-84F03FD217AD">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>02C0CB56-1223-74A3-ECC6-5CA9B186620C</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="THANHTIEN" id="738A552B-E565-25B6-E995-AD3D1C6FF7C7">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAVTPT" id="93AC4B16-9654-762C-F455-51EEADC9CB03">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SOLUONGSUDUNG" id="A10AC39D-DE1A-7417-36DE-43639A71A43F">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MACTPSC" id="F85C2D62-46DA-CDF5-869F-B465A4297264">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C008901" id="91E7F195-9D03-91FC-C0FC-A958AD429863">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C008902" id="DC160214-7EA8-0F99-B855-8ED6C798E439">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CT_SUDUNGVTPT_PK" id="24D71938-DAAD-7886-5B70-A4B01F93027C">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<segment>2307F747-2665-D2BB-CAEF-82AB196C3DED</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<indexSegment>2307F747-2665-D2BB-CAEF-82AB196C3DED</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="TAIKHOAN" directorySegmentName="seg_0" id="A8B3F13E-3F3D-F5A2-F701-7436D2FA0B40">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>1E1E9234-A537-18D9-34FC-F87316FB5F9E</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TENDANGNHAP" id="185FAC47-8156-FBA7-6398-2C0D2A2EEB6F">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CHUCVU" id="B67DBA26-9CF6-67B4-8CA5-58386D4C67AF">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MATKHAU" id="BFFDE9C6-52A3-483D-A8D7-11EB9C8A5600">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:14 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev12c>

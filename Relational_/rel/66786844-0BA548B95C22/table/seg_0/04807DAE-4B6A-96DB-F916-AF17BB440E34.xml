@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="04807DAE-4B6A-96DB-F916-AF17BB440E34" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="CT_PHIEUNHAPVTPT">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>CT_PHIEUNHAPVTPT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:59 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MAPNVTPT" id="942A05BC-5C3F-3315-48A8-3F8F8E702AC6">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>CT_PHIEUNHAPVTPT</sourceObjSchema>
+<sourceObjName>MAPNVTPT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:59 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DD133339-CAA9-DEDE-B1CC-2091CCD4C841" referredColumn="D7727A05-16BF-56DD-E018-099794F6D6BB"/>
+</associations>
+</Column>
+<Column name="MAVTPT" id="0D2C14ED-36CB-F88D-E9EF-08BAC504C94B">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>CT_PHIEUNHAPVTPT</sourceObjSchema>
+<sourceObjName>MAVTPT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:59 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="067B5FDA-9F56-369A-C00B-23AE15D7B4EA" referredColumn="884A0272-D7B7-E60A-79D8-59F0834E6DBC"/>
+</associations>
+</Column>
+<Column name="SOLUONGNHAP" id="FF6D7E1A-D0F6-11BA-4DE2-FFA5C0651128">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>CT_PHIEUNHAPVTPT</sourceObjSchema>
+<sourceObjName>SOLUONGNHAP</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:59 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIENNHAPVTPT" id="029DA023-C631-5B7F-01F6-C6A0DD6F0C80">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>CT_PHIEUNHAPVTPT</sourceObjSchema>
+<sourceObjName>TIENNHAPVTPT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:59 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CE7E5477-00A7-9174-727F-BB82720D033A" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="CT_PHIEUNHAPVTPT_PK">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>SYS_C008904</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:59 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="942A05BC-5C3F-3315-48A8-3F8F8E702AC6"/>
+<colUsage columnID="0D2C14ED-36CB-F88D-E9EF-08BAC504C94B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="52862429-1636-6A32-43D6-FC7117BD8E6D" name="SYS_C008905">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:59 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+<ind_PK_UK id="F0B18379-0106-E71C-9E58-8FB01537B0B6" name="SYS_C008905">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:59 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="942A05BC-5C3F-3315-48A8-3F8F8E702AC6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C5E7A362-865C-8C1B-8FED-AECB591B5E6A" name="SYS_C008906">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:59 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0D2C14ED-36CB-F88D-E9EF-08BAC504C94B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="KHACHHANG" directorySegmentName="seg_0" id="771029B1-CD58-D39C-CEBB-DF06C7E85935">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:24 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>02C0CB56-1223-74A3-ECC6-5CA9B186620C</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="HOTENKH" id="330D0560-CD93-7F76-F9B3-4C49702D5053">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:24 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMAIL" id="51F8F085-83FB-0C5A-550B-477F4192DEAB">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:24 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAKH" id="6381DC45-8CC6-BCE4-2DEC-2FF65FED9D60">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:24 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DIACHI" id="A5C17D3A-D21C-0342-6673-F8040BCDB227">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:24 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DIENTHOAI" id="B66FE2A8-E530-50BB-8371-CFF678F3112D">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:24 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="KHACHHANG_PK" id="9999E1BF-FBC4-08E3-42A4-03009EE29CF0">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:24 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<segment>2307F747-2665-D2BB-CAEF-82AB196C3DED</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<indexSegment>2307F747-2665-D2BB-CAEF-82AB196C3DED</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

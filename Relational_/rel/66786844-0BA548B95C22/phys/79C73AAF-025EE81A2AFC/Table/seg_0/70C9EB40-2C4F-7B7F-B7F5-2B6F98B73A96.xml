@@ -1,0 +1,40 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="HIEUXE" directorySegmentName="seg_0" id="70C9EB40-2C4F-7B7F-B7F5-2B6F98B73A96">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:19 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>02C0CB56-1223-74A3-ECC6-5CA9B186620C</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MAHX" id="1005FB8C-2DC6-B28B-A248-0EA1CD9674CD">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:19 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TENHIEUXE" id="321474BC-CC7C-8984-B4BB-039C2832350C">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:19 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="HIEUXE_PK" id="038AC40C-6B2F-4EE5-D944-0FAC94F678CC">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:19 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<segment>2307F747-2665-D2BB-CAEF-82AB196C3DED</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<indexSegment>2307F747-2665-D2BB-CAEF-82AB196C3DED</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

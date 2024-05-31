@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="PHIEUNHAPVTPT" directorySegmentName="seg_0" id="33027B4F-C577-F6D9-5FA2-19E357053973">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>02C0CB56-1223-74A3-ECC6-5CA9B186620C</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NGAYNHAP" id="26C6AF7E-5144-1C34-0C20-24D54F491DB1">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="THANHTIENNHAP" id="78EADA85-4F99-A1CF-3668-8084FDF68AFC">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAPNVTPT" id="D7727A05-16BF-56DD-E018-099794F6D6BB">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PHIEUNHAPVTPT_PK" id="475CBD6A-0E80-4AEC-E3A8-CB7A539FD609">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:28 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<segment>2307F747-2665-D2BB-CAEF-82AB196C3DED</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<indexSegment>2307F747-2665-D2BB-CAEF-82AB196C3DED</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

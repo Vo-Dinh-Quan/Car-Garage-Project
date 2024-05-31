@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CEB2BA04-2D53-1B9F-8954-3D5AFB3706D8" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="XE">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>XE</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BIENSO" id="B38B6B21-FAA4-4FE1-CD1C-96A3090E883D">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>BIENSO</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MAHX" id="B61BD034-8C68-11F8-4540-D1D84F4C3823">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>MAHX</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C46144F9-0BBE-E1C6-5843-0DD1C53B425F" referredColumn="1005FB8C-2DC6-B28B-A248-0EA1CD9674CD"/>
+</associations>
+</Column>
+<Column name="MAKH" id="70A0EB99-0B52-CC4C-731C-DB96E84AF6E9">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>MAKH</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EEA17953-075A-3670-DD56-318A747BFA3D" referredColumn="6381DC45-8CC6-BCE4-2DEC-2FF65FED9D60"/>
+</associations>
+</Column>
+<Column name="TIENNO" id="900AEEA1-77B2-3709-F40F-AEAF0D6BF339">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>TIENNO</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NGAYTIEPNHAN" id="89C37585-AE1B-AFCA-15F7-0DD0D3440471">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>NGAYTIEPNHAN</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FD51FD3D-A4CA-3AAF-C413-56BCFF3545B4" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="XE_PK">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>SYS_C008889</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B38B6B21-FAA4-4FE1-CD1C-96A3090E883D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="02961F35-0590-C314-5F3D-AAEF9BA5BCF2" name="SYS_C008890">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B61BD034-8C68-11F8-4540-D1D84F4C3823"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7ED3F609-8858-E77B-0FFB-F8E580113D2B" name="SYS_C008891">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:31 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="70A0EB99-0B52-CC4C-731C-DB96E84AF6E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="609518AD-1B25-F3F9-8B30-B0569274CE11" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="CT_PHIEUSUACHUA">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>CT_PHIEUSUACHUA</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MACTPSC" id="4957F7E8-592C-6A36-137F-3F6ACA3E128F">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>CT_PHIEUSUACHUA</sourceObjSchema>
+<sourceObjName>MACTPSC</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MAPSC" id="AE0330AF-4EB5-A364-2ED0-9E728AE67187">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>CT_PHIEUSUACHUA</sourceObjSchema>
+<sourceObjName>MAPSC</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F10C752A-32D5-2C14-CEBD-A9686B26E2AF" referredColumn="EA784D17-A1BC-3976-80AA-39DB8A518398"/>
+</associations>
+</Column>
+<Column name="MATC" id="48FBB893-EADB-EF14-027E-0AA415F573AF">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>CT_PHIEUSUACHUA</sourceObjSchema>
+<sourceObjName>MATC</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5FC8500A-FF13-0ECD-6175-5023B1E4E9A9" referredColumn="81EC8976-8078-C4F9-4A1A-93271322818F"/>
+</associations>
+</Column>
+<Column name="NOIDUNG" id="DF6D1D88-B043-A1F6-93FF-8D7F554ABF27">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>CT_PHIEUSUACHUA</sourceObjSchema>
+<sourceObjName>NOIDUNG</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="THANHTIENND" id="F841DDA1-AF25-E4B3-9A81-F8B4060A790C">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>CT_PHIEUSUACHUA</sourceObjSchema>
+<sourceObjName>THANHTIENND</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2EE025E7-9D30-5449-4485-AF437A665C3E" schemaObject="25145365-D931-21FF-1169-06BE9715E25E" name="CT_PHIEUSUACHUA_PK">
+<sourceConnName>IS216_PROJECT_DATABASE</sourceConnName>
+<sourceObjSchema>IS216_PROJECT_DATABASE</sourceObjSchema>
+<sourceObjName>SYS_C008896</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4957F7E8-592C-6A36-137F-3F6ACA3E128F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1240EDFA-FCD3-7012-F7B4-618F37A409B8" name="SYS_C008897">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE0330AF-4EB5-A364-2ED0-9E728AE67187"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A8635996-8F32-97ED-7802-6A7C8C97BF23" name="SYS_C008898">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:55:09 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="48FBB893-EADB-EF14-027E-0AA415F573AF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

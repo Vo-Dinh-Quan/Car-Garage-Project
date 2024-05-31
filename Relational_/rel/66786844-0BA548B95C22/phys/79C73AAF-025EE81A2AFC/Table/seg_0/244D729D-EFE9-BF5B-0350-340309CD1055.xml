@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="VATTUPHUTUNG" directorySegmentName="seg_0" id="244D729D-EFE9-BF5B-0350-340309CD1055">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>02C0CB56-1223-74A3-ECC6-5CA9B186620C</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DONGIABAN" id="444E25EA-DC75-D1C9-80D2-7D4012FF3C63">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAVTPT" id="884A0272-D7B7-E60A-79D8-59F0834E6DBC">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TENVTPT" id="B98FD3DB-20FB-996C-2E27-B988A2F3522C">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DONGIANHAP" id="CEC363AB-46E4-9B7D-CEAD-EE5353051228">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SOLUONGTON" id="F6EB0ADC-0885-38F7-9050-1CE44E32885E">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="VATTUPHUTUNG_PK" id="AA8019F1-61B7-1B18-2FBE-D420366462C0">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:56:26 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<segment>2307F747-2665-D2BB-CAEF-82AB196C3DED</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<indexSegment>2307F747-2665-D2BB-CAEF-82AB196C3DED</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

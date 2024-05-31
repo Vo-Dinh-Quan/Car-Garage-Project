@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="BAOCAODOANHSO" directorySegmentName="seg_0" id="470A540D-4999-2FAE-AFA9-2B3D95E670EA">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:48 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>02C0CB56-1223-74A3-ECC6-5CA9B186620C</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NAM" id="8088CEBD-DF79-A837-6D1F-F8E20C3F7B5E">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:48 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TONGDOANHTHU" id="97851512-648C-5EE9-199F-3ADF28006E20">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:48 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MABCDS" id="B6732C5C-6630-0605-79AE-23D6039D0E6A">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:48 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="THANG" id="C81475E7-7CD5-FC01-8917-1891F7854CE2">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:48 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="BAOCAODOANHSO_PK" id="2C602629-3203-F3D9-223A-012EACA368D7">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-05-31 03:54:48 UTC</createdTime>
+<ownerDesignName>Relational_</ownerDesignName>
+<schemaObject>25145365-D931-21FF-1169-06BE9715E25E</schemaObject>
+<segment>2307F747-2665-D2BB-CAEF-82AB196C3DED</segment>
+<tableSpace>F31CF327-5141-543B-8E29-3CB83F5D8ED0</tableSpace>
+<indexSegment>2307F747-2665-D2BB-CAEF-82AB196C3DED</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>
