@@ -1,6 +1,7 @@
 package View.panel;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
@@ -21,6 +22,7 @@ public class PanelBaoCao extends JPanel {
         panel_baocaodoanhthu.setLayout(null);
 
         JLabel label_baocaodoanhso = new JLabel("BÁO CÁO DOANH SỐ");
+        label_baocaodoanhso.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
         label_baocaodoanhso.setBounds(188, 11, 388, 27);
         label_baocaodoanhso.setHorizontalAlignment(SwingConstants.CENTER);
         label_baocaodoanhso.setFont(new Font("Segoe UI", Font.BOLD, 20));

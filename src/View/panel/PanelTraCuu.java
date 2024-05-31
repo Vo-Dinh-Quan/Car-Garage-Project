@@ -1,6 +1,7 @@
 package View.panel;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
@@ -13,6 +14,7 @@ public class PanelTraCuu extends JPanel {
         setBackground(Color.LIGHT_GRAY);
 
         JLabel label_tracuu = new JLabel("TRA CỨU XE");
+        label_tracuu.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
         label_tracuu.setBounds(10, 38, 216, 27);
         label_tracuu.setHorizontalAlignment(SwingConstants.CENTER);
         label_tracuu.setFont(new Font("Segoe UI", Font.BOLD, 20));

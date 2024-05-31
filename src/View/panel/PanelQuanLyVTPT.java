@@ -1,6 +1,7 @@
 package View.panel;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
@@ -13,12 +14,14 @@ public class PanelQuanLyVTPT extends JPanel {
         setBackground(Color.LIGHT_GRAY);
 
         JLabel label_danhsachphieunhap = new JLabel("DANH SÁCH PHIẾU NHẬP");
+        label_danhsachphieunhap.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
         label_danhsachphieunhap.setHorizontalAlignment(SwingConstants.CENTER);
         label_danhsachphieunhap.setFont(new Font("Segoe UI", Font.BOLD, 20));
         label_danhsachphieunhap.setBounds(10, 174, 350, 27);
         add(label_danhsachphieunhap);
 
         JLabel label_danhsachvtpt = new JLabel("DANH SÁCH VẬT TƯ PHỤ TÙNG");
+        label_danhsachvtpt.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
         label_danhsachvtpt.setHorizontalAlignment(SwingConstants.CENTER);
         label_danhsachvtpt.setFont(new Font("Segoe UI", Font.BOLD, 20));
         label_danhsachvtpt.setBounds(387, 174, 444, 27);
