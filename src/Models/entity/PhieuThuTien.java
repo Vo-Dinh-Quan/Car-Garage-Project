@@ -1,12 +1,15 @@
 package Models.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class PhieuThuTien {
     private String maPhieuThuTien;
     private String bienSo;
     private double soTienThu;
     private Date ngayThuTien;
+
+    // Constructors
+    public PhieuThuTien() {}
 
     public PhieuThuTien(String maPhieuThuTien, String bienSo, double soTienThu, Date ngayThuTien) {
         this.maPhieuThuTien = maPhieuThuTien;
@@ -15,9 +18,7 @@ public class PhieuThuTien {
         this.ngayThuTien = ngayThuTien;
     }
 
-    public PhieuThuTien() {
-    }
-
+    // Getters and Setters
     public String getMaPhieuThuTien() {
         return maPhieuThuTien;
     }
@@ -48,15 +49,5 @@ public class PhieuThuTien {
 
     public void setNgayThuTien(Date ngayThuTien) {
         this.ngayThuTien = ngayThuTien;
-    }
-
-    @Override
-    public String toString() {
-        return "PhieuThuTien{" +
-                "maPhieuThuTien='" + maPhieuThuTien + '\'' +
-                ", bienSo='" + bienSo + '\'' +
-                ", soTienThu=" + soTienThu +
-                ", ngayThuTien=" + ngayThuTien +
-                '}';
     }
 }

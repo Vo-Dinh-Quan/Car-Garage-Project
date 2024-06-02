@@ -3,19 +3,17 @@ package Models.entity;
 public class KhachHang {
     private String maKH;
     private String hoTenKH;
-    private long dienThoai;
+    private String dienThoai;
     private String email;
-    private String diaChi;
 
     public KhachHang() {
     }
 
-    public KhachHang(String maKH, long dienThoai, String hoTenKH, String email, String diaChi) {
+    public KhachHang(String maKH, String hoTenKH, String dienThoai,  String email) {
         this.maKH = maKH;
         this.dienThoai = dienThoai;
         this.hoTenKH = hoTenKH;
         this.email = email;
-        this.diaChi = diaChi;
     }
 
     public String getMaKH() {
@@ -26,11 +24,11 @@ public class KhachHang {
         this.maKH = maKH;
     }
 
-    public long getDienThoai() {
+    public String getDienThoai() {
         return dienThoai;
     }
 
-    public void setDienThoai(long dienThoai) {
+    public void setDienThoai(String dienThoai) {
         this.dienThoai = dienThoai;
     }
 
@@ -50,14 +48,6 @@ public class KhachHang {
         this.email = email;
     }
 
-    public String getDiaChi() {
-        return diaChi;
-    }
-
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
-    }
-
     @Override
     public String toString() {
         return "KhachHang{" +
@@ -65,7 +55,6 @@ public class KhachHang {
                 ", hoTenKH='" + hoTenKH + '\'' +
                 ", dienThoai=" + dienThoai +
                 ", email='" + email + '\'' +
-                ", diaChi='" + diaChi + '\'' +
                 '}';
     }
 }

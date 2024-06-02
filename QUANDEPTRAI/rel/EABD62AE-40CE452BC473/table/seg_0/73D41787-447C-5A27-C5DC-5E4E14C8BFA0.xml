@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="73D41787-447C-5A27-C5DC-5E4E14C8BFA0" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="BAOCAODOANHSO">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>BAOCAODOANHSO</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:43:27 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MABCDS" id="1C7AD1FC-05E8-F370-75BD-0392FA5E4160">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>BAOCAODOANHSO</sourceObjSchema>
+<sourceObjName>MABCDS</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:43:27 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="THANG" id="8846DA4C-604B-E04F-B78A-ED93B3EE0156">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>BAOCAODOANHSO</sourceObjSchema>
+<sourceObjName>THANG</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:43:27 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAM" id="645D72B5-7002-FC23-1E5E-1D8FE265B15E">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>BAOCAODOANHSO</sourceObjSchema>
+<sourceObjName>NAM</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:43:27 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TONGDOANHTHU" id="6993FD4C-B9C8-9ABF-E9EE-822E10851D11">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>BAOCAODOANHSO</sourceObjSchema>
+<sourceObjName>TONGDOANHTHU</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:43:27 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6EAAE499-1398-268B-295C-D2FBD4839954" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="BAOCAODOANHSO_PK">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>SYS_C008930</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:43:27 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1C7AD1FC-05E8-F370-75BD-0392FA5E4160"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

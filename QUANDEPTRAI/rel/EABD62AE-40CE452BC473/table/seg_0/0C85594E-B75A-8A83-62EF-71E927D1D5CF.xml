@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0C85594E-B75A-8A83-62EF-71E927D1D5CF" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="TAIKHOAN">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>TAIKHOAN</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:46 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CHUCVU" id="850F931D-F22C-401D-5D98-65C4099F3ABA">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>TAIKHOAN</sourceObjSchema>
+<sourceObjName>CHUCVU</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:46 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TENDANGNHAP" id="BD94BA39-D5A7-CE83-599B-967D9A635544">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>TAIKHOAN</sourceObjSchema>
+<sourceObjName>TENDANGNHAP</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:46 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MATKHAU" id="A2C942E0-2013-6F84-5EDC-D54430BE76B2">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>TAIKHOAN</sourceObjSchema>
+<sourceObjName>MATKHAU</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:46 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+</Table>

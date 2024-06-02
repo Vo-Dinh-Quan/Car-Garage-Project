@@ -86,7 +86,7 @@ public class HomeFrame extends JFrame {
         try {
             UIManager.setLookAndFeel(new FlatMacLightLaf());
             SwingUtilities.invokeLater(() -> {
-                HomeFrame homeFrame = new HomeFrame("user"); // Thay thế bằng username thực tế
+                HomeFrame homeFrame = new HomeFrame("user");
                 homeFrame.setVisible(true);
             });
         } catch (Exception e) {

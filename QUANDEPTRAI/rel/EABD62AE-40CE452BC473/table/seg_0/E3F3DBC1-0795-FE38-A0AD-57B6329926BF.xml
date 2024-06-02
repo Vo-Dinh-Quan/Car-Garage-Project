@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E3F3DBC1-0795-FE38-A0AD-57B6329926BF" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="KHACHHANG">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>KHACHHANG</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MAKH" id="80E3A159-B534-DE38-2454-E58030AA7194">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>KHACHHANG</sourceObjSchema>
+<sourceObjName>MAKH</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HOTENKH" id="70C726B1-BEBB-F3F4-29A3-F1C5643FDC67">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>KHACHHANG</sourceObjSchema>
+<sourceObjName>HOTENKH</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DIENTHOAI" id="90D47B69-B78A-A53B-1877-E4E241CFF77C">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>KHACHHANG</sourceObjSchema>
+<sourceObjName>DIENTHOAI</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="31316457-F6AF-E4D0-60A9-A8141A4A23C9">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>KHACHHANG</sourceObjSchema>
+<sourceObjName>EMAIL</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C23C6DCF-B9CC-DF2B-05A9-BF495D0F11EB" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="KHACHHANG_PK">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>SYS_C008915</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80E3A159-B534-DE38-2454-E58030AA7194"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

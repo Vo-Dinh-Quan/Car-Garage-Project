@@ -1,21 +1,22 @@
 package Models.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class PhieuNhapVTPT {
     private String maPNVTPT;
     private double thanhTienNhap;
     private Date ngayNhap;
 
-    public PhieuNhapVTPT(Date ngayNhap, double thanhTienNhap, String maPNVTPT) {
-        this.ngayNhap = ngayNhap;
-        this.thanhTienNhap = thanhTienNhap;
+    // Constructors
+    public PhieuNhapVTPT() {}
+
+    public PhieuNhapVTPT(String maPNVTPT, double thanhTienNhap, Date ngayNhap) {
         this.maPNVTPT = maPNVTPT;
+        this.thanhTienNhap = thanhTienNhap;
+        this.ngayNhap = ngayNhap;
     }
 
-    public PhieuNhapVTPT() {
-    }
-
+    // Getters and Setters
     public String getMaPNVTPT() {
         return maPNVTPT;
     }
@@ -38,14 +39,5 @@ public class PhieuNhapVTPT {
 
     public void setNgayNhap(Date ngayNhap) {
         this.ngayNhap = ngayNhap;
-    }
-
-    @Override
-    public String toString() {
-        return "PhieuNhapVTPT{" +
-                "maPNVTPT='" + maPNVTPT + '\'' +
-                ", thanhTienNhap=" + thanhTienNhap +
-                ", ngayNhap=" + ngayNhap +
-                '}';
     }
 }

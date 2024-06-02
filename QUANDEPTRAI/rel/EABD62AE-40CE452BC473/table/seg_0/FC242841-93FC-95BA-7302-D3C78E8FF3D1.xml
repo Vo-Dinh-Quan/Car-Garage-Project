@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FC242841-93FC-95BA-7302-D3C78E8FF3D1" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="TIENCONG">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>TIENCONG</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MATC" id="8AB80C40-1F8B-D00C-E785-8EE3AFD9C1CA">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>TIENCONG</sourceObjSchema>
+<sourceObjName>MATC</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TENTC" id="596416D4-8461-CD06-CC18-DD6B3FB511A5">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>TIENCONG</sourceObjSchema>
+<sourceObjName>TENTC</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CHIPHITC" id="879EEDDC-61D6-766D-41E6-14A5D0026F70">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>TIENCONG</sourceObjSchema>
+<sourceObjName>CHIPHITC</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="67E2A639-D27F-92A8-E7F1-316B874CE743" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="TIENCONG_PK">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>SYS_C008914</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8AB80C40-1F8B-D00C-E785-8EE3AFD9C1CA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

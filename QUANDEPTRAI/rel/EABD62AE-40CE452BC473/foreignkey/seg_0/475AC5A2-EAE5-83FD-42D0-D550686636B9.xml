@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="475AC5A2-EAE5-83FD-42D0-D550686636B9" containerWithKeyObject="D8491D44-4B8B-2CE1-9960-0D55B59D9A20" localFKIndex="81C91E08-04B4-3816-4C24-670D233F4410" name="SYS_C008921">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>SYS_C008921</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:39 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<referredTableLongName>IS216_FINAL_PROJECT.XE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8AF9067F-4A6C-44BA-07FE-1619DE499561</referredTableID>
+<keyObject>763B9469-8484-9D86-174A-DDD44EFEB130</keyObject>
+<referredKeyID>763B9469-8484-9D86-174A-DDD44EFEB130</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>BIENSO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

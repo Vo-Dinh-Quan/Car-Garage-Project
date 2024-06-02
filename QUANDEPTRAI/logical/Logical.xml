@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="EC9C8E40-D44A-4B1F-D2EE-DE43B452A63A" mainViewID="CA136F4B-386F-01F3-A908-2221E4919CD1">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 16:24:40 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B928E8CE-F211-325F-D2FC-FFF26E8950A9" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="PHIEUTHUTIEN">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>PHIEUTHUTIEN</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MAPHIEUTHUTIEN" id="1D9B3B95-904D-251E-704A-9C4BA8DF5207">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>PHIEUTHUTIEN</sourceObjSchema>
+<sourceObjName>MAPHIEUTHUTIEN</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BIENSO" id="09331713-3005-4B40-C747-FC1F978BF20D">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>PHIEUTHUTIEN</sourceObjSchema>
+<sourceObjName>BIENSO</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3CE089FC-6018-99BD-4CFA-440F7168B72A" referredColumn="68F795A4-2592-3D92-531F-7FB1815FD478"/>
+</associations>
+</Column>
+<Column name="SOTIENTHU" id="D4C1B38D-B0D4-F5F9-8BD3-807C5DCC44CC">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>PHIEUTHUTIEN</sourceObjSchema>
+<sourceObjName>SOTIENTHU</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NGAYTHUTIEN" id="33F07C7A-4A21-5F4E-7BF4-54B3EACC5AC9">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>PHIEUTHUTIEN</sourceObjSchema>
+<sourceObjName>NGAYTHUTIEN</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C8356BF3-48A9-3A10-5608-B85932B7AF93" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="PHIEUTHUTIEN_PK">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>SYS_C008918</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D9B3B95-904D-251E-704A-9C4BA8DF5207"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="90BCB243-AC78-CF29-429E-6C19D8B9A33A" name="SYS_C008919">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="09331713-3005-4B40-C747-FC1F978BF20D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

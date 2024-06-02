@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="TIENCONG" directorySegmentName="seg_0" id="FC242841-93FC-95BA-7302-D3C78E8FF3D1">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<schemaObject>65CF37DD-9C8B-041B-D124-25EF6F03CAD0</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FAA7C261-39E9-0804-EF2F-7EBD83935F1E</segment>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TENTC" id="596416D4-8461-CD06-CC18-DD6B3FB511A5">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CHIPHITC" id="879EEDDC-61D6-766D-41E6-14A5D0026F70">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MATC" id="8AB80C40-1F8B-D00C-E785-8EE3AFD9C1CA">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TIENCONG_PK" id="67E2A639-D27F-92A8-E7F1-316B874CE743">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<schemaObject>65CF37DD-9C8B-041B-D124-25EF6F03CAD0</schemaObject>
+<segment>AA874FFB-FC4D-E0BE-5ABC-01340940EF59</segment>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+<indexSegment>AA874FFB-FC4D-E0BE-5ABC-01340940EF59</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

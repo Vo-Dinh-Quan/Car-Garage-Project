@@ -5,8 +5,8 @@ public class TienCong {
     private String tenTC;
     private double chiPhiTC;
 
-    public TienCong() {
-    }
+    // Constructors
+    public TienCong() {}
 
     public TienCong(String maTC, String tenTC, double chiPhiTC) {
         this.maTC = maTC;
@@ -14,6 +14,7 @@ public class TienCong {
         this.chiPhiTC = chiPhiTC;
     }
 
+    // Getters and Setters
     public String getMaTC() {
         return maTC;
     }
@@ -37,16 +38,4 @@ public class TienCong {
     public void setChiPhiTC(double chiPhiTC) {
         this.chiPhiTC = chiPhiTC;
     }
-
-    @Override
-    public String toString() {
-        return "TienCong{" +
-                "maTC='" + maTC + '\'' +
-                ", tenTC='" + tenTC + '\'' +
-                ", chiPhiTC=" + chiPhiTC +
-                '}';
-    }
-    // Getters và Setters
-    // Constructor không đối số và có đối số
-    // Phương thức toString()
 }

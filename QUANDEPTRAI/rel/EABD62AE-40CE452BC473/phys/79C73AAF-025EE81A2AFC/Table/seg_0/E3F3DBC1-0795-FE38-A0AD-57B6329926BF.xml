@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="KHACHHANG" directorySegmentName="seg_0" id="E3F3DBC1-0795-FE38-A0AD-57B6329926BF">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<schemaObject>65CF37DD-9C8B-041B-D124-25EF6F03CAD0</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>51E74D40-9C8B-0143-A050-D830686490A8</segment>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="EMAIL" id="31316457-F6AF-E4D0-60A9-A8141A4A23C9">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HOTENKH" id="70C726B1-BEBB-F3F4-29A3-F1C5643FDC67">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAKH" id="80E3A159-B534-DE38-2454-E58030AA7194">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DIENTHOAI" id="90D47B69-B78A-A53B-1877-E4E241CFF77C">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="KHACHHANG_PK" id="C23C6DCF-B9CC-DF2B-05A9-BF495D0F11EB">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<schemaObject>65CF37DD-9C8B-041B-D124-25EF6F03CAD0</schemaObject>
+<segment>69F6A6A4-006E-0FF3-0E47-2BCCB95BD527</segment>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+<indexSegment>69F6A6A4-006E-0FF3-0E47-2BCCB95BD527</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

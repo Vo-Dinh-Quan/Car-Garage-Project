@@ -14,7 +14,7 @@ public class Database_Connection {
         Driver myDriver = new OracleDriver();
         try {
             DriverManager.registerDriver(myDriver);
-            c = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl21c", "IS216_PROJECT_DATABASE", "uitisquan");
+            c = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl21c", "IS216_DATABASE", "uitisquan");
             if (c != null) {
                 System.out.println("Connection status: Successful");
             }else System.out.println("Error");

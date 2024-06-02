@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="QUANDEPTRAI" id="F813A054-A334-790A-958C-1AD7312A5FBD" version="3.5">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 16:24:40 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>F813A054-A334-790A-958C-1AD7312A5FBD</designId>
+</OSDM_Design>

@@ -6,6 +6,9 @@ public class CTPhieuNhapVTPT {
     private int soLuongNhap;
     private double tienNhapVTPT;
 
+    // Constructors
+    public CTPhieuNhapVTPT() {}
+
     public CTPhieuNhapVTPT(String maPNVTPT, String maVTPT, int soLuongNhap, double tienNhapVTPT) {
         this.maPNVTPT = maPNVTPT;
         this.maVTPT = maVTPT;
@@ -13,9 +16,7 @@ public class CTPhieuNhapVTPT {
         this.tienNhapVTPT = tienNhapVTPT;
     }
 
-    public CTPhieuNhapVTPT() {
-    }
-
+    // Getters and Setters
     public String getMaPNVTPT() {
         return maPNVTPT;
     }
@@ -46,15 +47,5 @@ public class CTPhieuNhapVTPT {
 
     public void setTienNhapVTPT(double tienNhapVTPT) {
         this.tienNhapVTPT = tienNhapVTPT;
-    }
-
-    @Override
-    public String toString() {
-        return "CTPhieuNhapVTPT{" +
-                "maPNVTPT='" + maPNVTPT + '\'' +
-                ", maVTPT='" + maVTPT + '\'' +
-                ", soLuongNhap=" + soLuongNhap +
-                ", tienNhapVTPT=" + tienNhapVTPT +
-                '}';
     }
 }

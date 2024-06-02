@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8AF9067F-4A6C-44BA-07FE-1619DE499561" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="XE">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>XE</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:41:02 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BIENSO" id="68F795A4-2592-3D92-531F-7FB1815FD478">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>BIENSO</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:41:02 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MAKH" id="D613E142-9FAB-C989-2B40-9DF2D1EF2623">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>MAKH</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:41:02 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E11043CC-DD5F-EA86-1E3E-04E1E0FBEB39" referredColumn="80E3A159-B534-DE38-2454-E58030AA7194"/>
+</associations>
+</Column>
+<Column name="TENHX" id="EE255A71-6D45-3FC9-DF43-CF3709FC89C3">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>TENHX</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:41:02 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIENNO" id="73096334-C165-0F09-1286-7D461538DAB7">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>TIENNO</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:41:02 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NGAYTIEPNHAN" id="33263670-EABF-9BE0-1811-BC1539FA4CDD">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>NGAYTIEPNHAN</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:41:02 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="763B9469-8484-9D86-174A-DDD44EFEB130" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="XE_PK">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>SYS_C008916</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:41:02 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="68F795A4-2592-3D92-531F-7FB1815FD478"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9306DC95-6F8B-BFBF-A81F-DEB7D491627F" name="SYS_C008917">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:41:02 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D613E142-9FAB-C989-2B40-9DF2D1EF2623"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

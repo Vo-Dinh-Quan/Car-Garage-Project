@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="PHIEUTHUTIEN" directorySegmentName="seg_0" id="B928E8CE-F211-325F-D2FC-FFF26E8950A9">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<schemaObject>65CF37DD-9C8B-041B-D124-25EF6F03CAD0</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FAA7C261-39E9-0804-EF2F-7EBD83935F1E</segment>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="BIENSO" id="09331713-3005-4B40-C747-FC1F978BF20D">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAPHIEUTHUTIEN" id="1D9B3B95-904D-251E-704A-9C4BA8DF5207">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NGAYTHUTIEN" id="33F07C7A-4A21-5F4E-7BF4-54B3EACC5AC9">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SOTIENTHU" id="D4C1B38D-B0D4-F5F9-8BD3-807C5DCC44CC">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C008919" id="90BCB243-AC78-CF29-429E-6C19D8B9A33A">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PHIEUTHUTIEN_PK" id="C8356BF3-48A9-3A10-5608-B85932B7AF93">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<schemaObject>65CF37DD-9C8B-041B-D124-25EF6F03CAD0</schemaObject>
+<segment>AA874FFB-FC4D-E0BE-5ABC-01340940EF59</segment>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+<indexSegment>AA874FFB-FC4D-E0BE-5ABC-01340940EF59</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

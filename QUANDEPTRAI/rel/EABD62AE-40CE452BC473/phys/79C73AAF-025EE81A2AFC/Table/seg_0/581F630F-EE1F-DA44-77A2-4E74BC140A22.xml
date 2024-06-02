@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="CT_PHIEUSUACHUA" directorySegmentName="seg_0" id="581F630F-EE1F-DA44-77A2-4E74BC140A22">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:14 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<schemaObject>65CF37DD-9C8B-041B-D124-25EF6F03CAD0</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>FAA7C261-39E9-0804-EF2F-7EBD83935F1E</segment>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MATC" id="17D7B885-989B-1A31-35E6-E6F89FE9ABD5">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:15 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MACTPSC" id="6BFE23CD-524D-F161-84EF-FAB8924FB226">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:15 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAPSC" id="B8F2043A-BD97-4F70-6CF4-0B7DB11B6164">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:15 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="THANHTIENND" id="C480EBF7-963A-C666-2864-4E015DEA8CDF">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:15 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOIDUNG" id="FAE661EF-44B0-FD6D-DBB7-5E0DE7F40827">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:15 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C008923" id="0F982DC3-2BD2-FA80-3354-D64F58AC8590">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:18 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C008924" id="4E0B7FA1-B148-CD22-F981-5878630CB661">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:18 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CT_PHIEUSUACHUA_PK" id="B16FE9E5-5BA4-8BA9-4946-D86BEC697B56">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:18 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<schemaObject>65CF37DD-9C8B-041B-D124-25EF6F03CAD0</schemaObject>
+<segment>AA874FFB-FC4D-E0BE-5ABC-01340940EF59</segment>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+<indexSegment>AA874FFB-FC4D-E0BE-5ABC-01340940EF59</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="IS216_FINAL_PROJECT" directorySegmentName="seg_0" id="557B763C-5455-3461-A5AC-3B59BD77DB64">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjName>IS216_FINAL_PROJECT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:14 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<schemaObject>65CF37DD-9C8B-041B-D124-25EF6F03CAD0</schemaObject>
+<defTableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</defTableSpace>
+<privileges>ALTER ANY ANALYTIC VIEW, INHERIT ANY PRIVILEGES, DROP ANY SQL TRANSLATION PROFILE, ALTER PUBLIC DATABASE LINK, UPDATE ANY CUBE, MANAGE ANY FILE GROUP, MANAGE FILE GROUP, CREATE JOB, DROP ANY CONTEXT, UNDER ANY TABLE, ALTER PROFILE, DROP ANY TRIGGER, DROP ANY SEQUENCE, ALTER ANY INDEX, UNLIMITED TABLESPACE</privileges>
+<quotaItems>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem1" id="CBA7C2A3-18E0-6E41-7445-92AA026DA811">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:14 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem2" id="6322F810-68D8-76B4-25D3-78EAE07E565E">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:23 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem3" id="C968C88C-A42A-495B-D4A3-E72886A8485A">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:29 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem4" id="3526A64A-C1DE-900C-9013-9CDF75F2D850">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:38 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem5" id="EB653007-5D71-3A89-1308-5C60AC722FBF">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:42 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem6" id="B134B21B-E0F6-0E1D-ABF8-98A73D0DE1CB">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:46 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem7" id="DA8F233E-C809-018D-661B-A3B9D69560A4">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:51 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem8" id="676022FA-9837-9CD8-870A-31F7FEE39FF1">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:40:57 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem9" id="1BFBBBEB-9BD7-3650-E63B-72719AD91325">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:41:02 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem10" id="34B76213-9D6D-7C44-F63B-407C719E3F07">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-01 23:43:27 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem11" id="FBED3F7F-7214-1356-0436-8EF96E04F36F">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-02 01:06:35 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem12" id="F78548CB-642F-4BAB-124B-60DD2FEEBCBB">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-02 01:07:16 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<tableSpace>D2155D7A-3C0A-B415-9899-14BDE0F5D8F4</tableSpace>
+</QuotaItem>
+</quotaItems>
+</UserOraclev10g>

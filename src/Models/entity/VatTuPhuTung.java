@@ -7,17 +7,18 @@ public class VatTuPhuTung {
     private double donGiaBan;
     private int soLuongTon;
 
-    public VatTuPhuTung(String tenVTPT, String maVTPT, double donGiaBan, double donGiaNhap, int soLuongTon) {
-        this.tenVTPT = tenVTPT;
+    // Constructors
+    public VatTuPhuTung() {}
+
+    public VatTuPhuTung(String maVTPT, String tenVTPT, double donGiaNhap, double donGiaBan, int soLuongTon) {
         this.maVTPT = maVTPT;
-        this.donGiaBan = donGiaBan;
+        this.tenVTPT = tenVTPT;
         this.donGiaNhap = donGiaNhap;
+        this.donGiaBan = donGiaBan;
         this.soLuongTon = soLuongTon;
     }
 
-    public VatTuPhuTung() {
-    }
-
+    // Getters and Setters
     public String getMaVTPT() {
         return maVTPT;
     }
@@ -56,16 +57,5 @@ public class VatTuPhuTung {
 
     public void setSoLuongTon(int soLuongTon) {
         this.soLuongTon = soLuongTon;
-    }
-
-    @Override
-    public String toString() {
-        return "VatTuPhuTung{" +
-                "maVTPT='" + maVTPT + '\'' +
-                ", tenVTPT='" + tenVTPT + '\'' +
-                ", donGiaNhap=" + donGiaNhap +
-                ", donGiaBan=" + donGiaBan +
-                ", soLuongTon=" + soLuongTon +
-                '}';
     }
 }

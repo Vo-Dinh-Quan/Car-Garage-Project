@@ -1,27 +1,28 @@
 package Models.entity;
 
 public class CTSuDungVTPT {
-    private String maCTPSC;
+    private String maPhieuSuaChua;
     private String maVTPT;
     private int soLuongSuDung;
     private double thanhTien;
 
-    public CTSuDungVTPT(String maCTPSC, int soLuongSuDung, String maVTPT, double thanhTien) {
-        this.maCTPSC = maCTPSC;
-        this.soLuongSuDung = soLuongSuDung;
+    // Constructors
+    public CTSuDungVTPT() {}
+
+    public CTSuDungVTPT(String maPhieuSuaChua, String maVTPT, int soLuongSuDung, double thanhTien) {
+        this.maPhieuSuaChua = maPhieuSuaChua;
         this.maVTPT = maVTPT;
+        this.soLuongSuDung = soLuongSuDung;
         this.thanhTien = thanhTien;
     }
 
-    public CTSuDungVTPT() {
+    // Getters and Setters
+    public String getMaPhieuSuaChua() {
+        return maPhieuSuaChua;
     }
 
-    public String getMaCTPSC() {
-        return maCTPSC;
-    }
-
-    public void setMaCTPSC(String maCTPSC) {
-        this.maCTPSC = maCTPSC;
+    public void setMaPhieuSuaChua(String maPhieuSuaChua) {
+        this.maPhieuSuaChua = maPhieuSuaChua;
     }
 
     public String getMaVTPT() {
@@ -46,15 +47,5 @@ public class CTSuDungVTPT {
 
     public void setThanhTien(double thanhTien) {
         this.thanhTien = thanhTien;
-    }
-
-    @Override
-    public String toString() {
-        return "CTSuDungVTPT{" +
-                "maCTPSC='" + maCTPSC + '\'' +
-                ", maVTPT='" + maVTPT + '\'' +
-                ", soLuongSuDung=" + soLuongSuDung +
-                ", thanhTien=" + thanhTien +
-                '}';
     }
 }

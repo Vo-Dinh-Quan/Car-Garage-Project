@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CE7C40DB-39B9-9E51-B835-0E02763720D5" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="CT_SUDUNGVTPT">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>CT_SUDUNGVTPT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-02 01:06:35 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MACTPSC" id="802BCED7-42AF-6714-8C89-8B6129756811">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>CT_SUDUNGVTPT</sourceObjSchema>
+<sourceObjName>MACTPSC</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-02 01:06:35 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BEACFC4C-3A72-61B2-D880-531005D2EBB1" referredColumn="6BFE23CD-524D-F161-84EF-FAB8924FB226"/>
+</associations>
+</Column>
+<Column name="MAVTPT" id="50FB0472-732B-6B9B-F3E9-25B8050DD83E">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>CT_SUDUNGVTPT</sourceObjSchema>
+<sourceObjName>MAVTPT</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-02 01:06:35 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C512343E-9B53-2F50-6F52-9D3DF8D5007E" referredColumn="C1649775-1085-2A5F-D93D-7AD20487530B"/>
+</associations>
+</Column>
+<Column name="SOLUONGSUDUNG" id="73D9C3B1-02D4-EB3E-2422-BBCD6510BC2B">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>CT_SUDUNGVTPT</sourceObjSchema>
+<sourceObjName>SOLUONGSUDUNG</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-02 01:06:35 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="THANHTIEN" id="9D5788D2-BC15-8827-7916-B0BD8D9BEA03">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>CT_SUDUNGVTPT</sourceObjSchema>
+<sourceObjName>THANHTIEN</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-02 01:06:35 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="79A31459-23D6-94C2-1075-5A7A44EB3D31" schemaObject="65CF37DD-9C8B-041B-D124-25EF6F03CAD0" name="CT_SUDUNGVTPT_PK">
+<sourceConnName>IS216_FINAL_PROJECT</sourceConnName>
+<sourceObjSchema>IS216_FINAL_PROJECT</sourceObjSchema>
+<sourceObjName>SYS_C008931</sourceObjName>
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-02 01:06:35 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="802BCED7-42AF-6714-8C89-8B6129756811"/>
+<colUsage columnID="50FB0472-732B-6B9B-F3E9-25B8050DD83E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6E4F8736-B18F-C082-D7AE-81A9ECEC3C44" name="SYS_C008932">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-02 01:06:35 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="802BCED7-42AF-6714-8C89-8B6129756811"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="22595634-865D-517A-F4EE-3C6A3C0AABB1" name="SYS_C008933">
+<createdBy>nhokv</createdBy>
+<createdTime>2024-06-02 01:06:35 UTC</createdTime>
+<ownerDesignName>QUANDEPTRAI</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="50FB0472-732B-6B9B-F3E9-25B8050DD83E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

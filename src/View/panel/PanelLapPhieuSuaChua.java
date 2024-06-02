@@ -1,22 +1,54 @@
 package View.panel;
 
+import Models.dao.TienCongDAO;
+import Models.dao.VatTuPhuTungDAO;
+import Models.dao.XeDAO;
+import Models.dao.PhieuSuaChuaDAO;
+import Models.entity.TienCong;
+import Models.entity.VatTuPhuTung;
+import Models.entity.Xe;
+import Models.entity.PhieuSuaChua;
+import Models.entity.CTSuDungVTPT;
+
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class PanelLapPhieuSuaChua extends JPanel {
+    private final JComboBox<String> comboBox_tentiencong;
+    private final JComboBox<String> comboBox_biensoxe;
+    private final JComboBox<String> comboBox_VTPT;
+    private final JButton button_lammoibangtiencong;
+    private final JButton button_lammoibangvtpt;
+    private final JButton button_lammoi_phieusuachua;
     private JTable table_vattuphutung;
     private JTable table_phieusuachuahienco;
     private JTable table_tiencong;
     private JTextField textField_soluong;
     private JTextField textField_ngaysuachua;
-    private JTextField textField_tentiencong;
     private JTextField textField_tongtien;
+    private TienCongDAO tienCongDAO;
+    private VatTuPhuTungDAO vatTuPhuTungDAO;
+    private XeDAO xeDAO;
+    private PhieuSuaChuaDAO phieuSuaChuaDAO;
 
     public PanelLapPhieuSuaChua() {
+        tienCongDAO = new TienCongDAO();
+        vatTuPhuTungDAO = new VatTuPhuTungDAO();
+        xeDAO = new XeDAO();
+        phieuSuaChuaDAO = new PhieuSuaChuaDAO();
         setLayout(null);
         setBackground(Color.LIGHT_GRAY);
+
         JLabel label_lapphieusuachua = new JLabel("LẬP PHIẾU SỬA CHỮA");
         label_lapphieusuachua.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
         label_lapphieusuachua.setFont(new Font("Segoe UI", Font.BOLD, 20));
@@ -31,15 +63,16 @@ public class PanelLapPhieuSuaChua extends JPanel {
         table_vattuphutung = new JTable();
         table_vattuphutung.setFont(new Font("Segoe UI", Font.BOLD, 11));
         table_vattuphutung.setModel(new DefaultTableModel(
-                new Object[][]{
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                },
+                new Object[][]{},
                 new String[]{
-                        "STT", "Mã phụ tùng", "Vật tư phụ tùng", "Số lượng", "Đơn giá", "Thành tiền"
+                        "Mã phụ tùng", "Vật tư phụ tùng", "Số lượng", "Đơn giá", "Thành tiền (VND)"
                 }
         ));
         scrollPane_table_vattuphutung.setViewportView(table_vattuphutung);
+        TableColumnModel columnModel = table_vattuphutung.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(50);
+        columnModel.getColumn(2).setPreferredWidth(30);
+        columnModel.getColumn(3).setPreferredWidth(30);
 
         JScrollPane scrollPane_phieusuachuahienco = new JScrollPane();
         scrollPane_phieusuachuahienco.setBounds(10, 363, 821, 141);
@@ -50,7 +83,7 @@ public class PanelLapPhieuSuaChua extends JPanel {
         table_phieusuachuahienco.setModel(new DefaultTableModel(
                 new Object[][]{},
                 new String[]{
-                        "Mã phiếu sửa chữa", "Biển số xe", "Ngày nhận sửa", "Thành tiền"
+                        "Mã phiếu sửa chữa", "Biển số xe", "Ngày nhận sửa", "Thành tiền (VND)"
                 }
         ));
         scrollPane_phieusuachuahienco.setViewportView(table_phieusuachuahienco);
@@ -74,17 +107,14 @@ public class PanelLapPhieuSuaChua extends JPanel {
         table_tiencong = new JTable();
         table_tiencong.setFont(new Font("Segoe UI", Font.BOLD, 11));
         table_tiencong.setModel(new DefaultTableModel(
-                new Object[][]{
-                        {null, null, null, null},
-                        {null, null, null, null},
-                },
+                new Object[][]{},
                 new String[]{
-                        "STT", "Mã tiền công", "Nội dung", "Chi phí"
+                        "Mã tiền công", "Nội dung", "Chi phí"
                 }
         ));
         scrollPane_table_tiencong.setViewportView(table_tiencong);
 
-        JComboBox comboBox_biensoxe = new JComboBox();
+        comboBox_biensoxe = new JComboBox<>();
         comboBox_biensoxe.setBounds(90, 52, 265, 30);
         add(comboBox_biensoxe);
 
@@ -93,7 +123,7 @@ public class PanelLapPhieuSuaChua extends JPanel {
         label_VTPT.setBounds(10, 93, 75, 29);
         add(label_VTPT);
 
-        JComboBox comboBox_VTPT = new JComboBox();
+        comboBox_VTPT = new JComboBox<>();
         comboBox_VTPT.setBounds(90, 93, 265, 30);
         add(comboBox_VTPT);
 
@@ -127,20 +157,34 @@ public class PanelLapPhieuSuaChua extends JPanel {
         label_tentiencong.setBounds(485, 93, 86, 29);
         add(label_tentiencong);
 
-        textField_tentiencong = new JTextField();
-        textField_tentiencong.setColumns(10);
-        textField_tentiencong.setBounds(581, 92, 250, 30);
-        add(textField_tentiencong);
+        comboBox_tentiencong = new JComboBox<>();
+        comboBox_tentiencong.setBounds(581, 93, 250, 30);
+        add(comboBox_tentiencong);
+
+        // Load danh sách tiền công lên comboBox_tentiencong
+        loadTienCongToComboBox();
 
         JButton button_nhaptiencong = new JButton("Nhập tiền công");
         button_nhaptiencong.setFont(new Font("Segoe UI", Font.BOLD, 11));
         button_nhaptiencong.setBounds(698, 129, 133, 35);
         add(button_nhaptiencong);
+        button_nhaptiencong.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nhapTienCong();
+            }
+        });
 
         JButton button_hoantat = new JButton("Hoàn tất");
         button_hoantat.setFont(new Font("Segoe UI", Font.BOLD, 11));
         button_hoantat.setBounds(10, 284, 106, 35);
         add(button_hoantat);
+        button_hoantat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                hoanTatPhieuSuaChua();
+            }
+        });
 
         JLabel label_tongtien = new JLabel("Tổng tiền:");
         label_tongtien.setFont(new Font("Segoe UI", Font.BOLD, 11));
@@ -156,10 +200,234 @@ public class PanelLapPhieuSuaChua extends JPanel {
         button_luu.setFont(new Font("Segoe UI", Font.BOLD, 11));
         button_luu.setBounds(725, 284, 106, 35);
         add(button_luu);
+        button_luu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                luuPhieuSuaChua();
+            }
+        });
 
         JButton button_nhapphieumoi = new JButton("Nhập phiếu mới");
         button_nhapphieumoi.setFont(new Font("Segoe UI", Font.BOLD, 11));
         button_nhapphieumoi.setBounds(548, 284, 133, 35);
         add(button_nhapphieumoi);
+        button_nhapphieumoi.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nhapPhieuMoi();
+            }
+        });
+
+        button_lammoibangtiencong = new JButton("Làm mới");
+        button_lammoibangtiencong.setFont(new Font("Segoe UI", Font.BOLD, 11));
+        button_lammoibangtiencong.setBounds(485, 129, 96, 35);
+        add(button_lammoibangtiencong);
+        button_lammoibangtiencong.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lamMoiBangTienCong();
+            }
+        });
+
+        button_lammoibangvtpt = new JButton("Làm mới");
+        button_lammoibangvtpt.setFont(new Font("Segoe UI", Font.BOLD, 11));
+        button_lammoibangvtpt.setBounds(379, 129, 96, 35);
+        add(button_lammoibangvtpt);
+        button_lammoibangvtpt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lamMoiBangVTPT();
+            }
+        });
+
+        button_lammoi_phieusuachua = new JButton("Làm mới");
+        button_lammoi_phieusuachua.setFont(new Font("Segoe UI", Font.BOLD, 11));
+        button_lammoi_phieusuachua.setBounds(742, 329, 89, 23);
+        add(button_lammoi_phieusuachua);
+        button_lammoi_phieusuachua.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lamMoiBangPhieuSuaChua();
+            }
+        });
+
+        // Load danh sách xe và VTPT lên comboBox
+        loadXeToComboBox();
+        loadVTPTToComboBox();
+
+        button_nhapvtpt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nhapVTPT();
+            }
+        });
+
+        loadPhieuSuaChuaHienCo();
+    }
+
+    private void loadTienCongToComboBox() {
+        List<TienCong> tienCongList = tienCongDAO.getAllTienCong();
+        comboBox_tentiencong.removeAllItems();
+        for (TienCong tc : tienCongList) {
+            comboBox_tentiencong.addItem(tc.getTenTC());
+        }
+    }
+
+    private void loadXeToComboBox() {
+        List<Xe> xeList = xeDAO.getAllXe();
+        comboBox_biensoxe.removeAllItems();
+        for (Xe xe : xeList) {
+            comboBox_biensoxe.addItem(xe.getBienSo());
+        }
+    }
+
+    private void loadVTPTToComboBox() {
+        List<VatTuPhuTung> vtptList = vatTuPhuTungDAO.getAllVatTuPhuTung();
+        comboBox_VTPT.removeAllItems();
+        for (VatTuPhuTung vtpt : vtptList) {
+            comboBox_VTPT.addItem(vtpt.getTenVTPT());
+        }
+    }
+
+    private void nhapTienCong() {
+        String tenTC = (String) comboBox_tentiencong.getSelectedItem();
+        if (tenTC != null && !tenTC.isEmpty()) {
+            TienCong tienCong = tienCongDAO.getTienCongByTen(tenTC);
+            if (tienCong != null) {
+                DefaultTableModel model = (DefaultTableModel) table_tiencong.getModel();
+                model.addRow(new Object[]{tienCong.getMaTC(), tienCong.getTenTC(), tienCong.getChiPhiTC()});
+            } else {
+                JOptionPane.showMessageDialog(this, "Không tìm thấy tiền công tương ứng.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn tiền công.");
+        }
+    }
+
+    private void nhapVTPT() {
+        String tenVTPT = (String) comboBox_VTPT.getSelectedItem();
+        int soLuong;
+
+        try {
+            soLuong = Integer.parseInt(textField_soluong.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Số lượng phải là số.");
+            return;
+        }
+
+        VatTuPhuTung vtpt = vatTuPhuTungDAO.getVatTuPhuTungByTen(tenVTPT);
+        if (vtpt != null) {
+            double donGiaBan = vtpt.getDonGiaBan();
+            double thanhTien = donGiaBan * soLuong;
+
+            DefaultTableModel model = (DefaultTableModel) table_vattuphutung.getModel();
+            model.addRow(new Object[]{vtpt.getMaVTPT(), vtpt.getTenVTPT(), soLuong, donGiaBan, thanhTien});
+
+            textField_soluong.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Không tìm thấy vật tư phụ tùng tương ứng.");
+        }
+    }
+
+    private void nhapPhieuMoi() {
+        DefaultTableModel vtptModel = (DefaultTableModel) table_vattuphutung.getModel();
+        vtptModel.setRowCount(0); // Clear existing data
+
+        DefaultTableModel tienCongModel = (DefaultTableModel) table_tiencong.getModel();
+        tienCongModel.setRowCount(0); // Clear existing data
+
+        textField_tongtien.setText("");
+        textField_ngaysuachua.setText("");
+        textField_soluong.setText("");
+        comboBox_biensoxe.setSelectedIndex(-1);
+        comboBox_tentiencong.setSelectedIndex(-1);
+        comboBox_VTPT.setSelectedIndex(-1);
+    }
+
+    private void hoanTatPhieuSuaChua() {
+        double tongTien = 0.0;
+
+        // Tính tổng thành tiền từ table_vattuphutung
+        DefaultTableModel vtptModel = (DefaultTableModel) table_vattuphutung.getModel();
+        int rowCount = vtptModel.getRowCount();
+        for (int i = 0; i < rowCount; i++) {
+            double thanhTien = (double) vtptModel.getValueAt(i, 4);
+            tongTien += thanhTien;
+        }
+
+        // Tính tổng chi phí tiền công từ table_tiencong
+        DefaultTableModel tienCongModel = (DefaultTableModel) table_tiencong.getModel();
+        rowCount = tienCongModel.getRowCount();
+        for (int i = 0; i < rowCount; i++) {
+            double chiPhi = (double) tienCongModel.getValueAt(i, 2);
+            tongTien += chiPhi;
+        }
+
+        textField_tongtien.setText(String.valueOf(tongTien));
+    }
+
+    private void luuPhieuSuaChua() {
+        String bienSo = (String) comboBox_biensoxe.getSelectedItem();
+        String ngaySuaChuaStr = textField_ngaysuachua.getText();
+        double thanhTienPSC = Double.parseDouble(textField_tongtien.getText());
+
+        Date ngaySuaChua;
+        try {
+            ngaySuaChua = new SimpleDateFormat("dd/MM/yyyy").parse(ngaySuaChuaStr);
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(this, "Ngày sửa chữa không đúng định dạng. Vui lòng nhập ngày theo định dạng dd/MM/yyyy.");
+            return;
+        }
+
+        // Tạo phiếu sửa chữa
+        String maPhieuSuaChua = phieuSuaChuaDAO.generateMaPhieuSuaChua();
+        PhieuSuaChua phieuSuaChua = new PhieuSuaChua(maPhieuSuaChua, bienSo, ngaySuaChua, thanhTienPSC);
+        phieuSuaChuaDAO.savePhieuSuaChua(phieuSuaChua);
+
+        // Tạo chi tiết sử dụng vật tư phụ tùng
+        DefaultTableModel vtptModel = (DefaultTableModel) table_vattuphutung.getModel();
+        List<CTSuDungVTPT> ctSudungVTPTList = new ArrayList<>();
+        for (int i = 0; i < vtptModel.getRowCount(); i++) {
+            String maVTPT = (String) vtptModel.getValueAt(i, 0);
+            int soLuongSuDung = (int) vtptModel.getValueAt(i, 2);
+            double thanhTien = (double) vtptModel.getValueAt(i, 4);
+
+            CTSuDungVTPT ctSudungVTPT = new CTSuDungVTPT(maPhieuSuaChua, maVTPT, soLuongSuDung, thanhTien);
+            ctSudungVTPTList.add(ctSudungVTPT);
+
+            // Trừ số lượng tồn
+            vatTuPhuTungDAO.updateSoLuongTon(maVTPT, -soLuongSuDung);
+        }
+        phieuSuaChuaDAO.saveCTSudungVTPT(ctSudungVTPTList);
+
+        // Cập nhật tiền nợ của xe
+        xeDAO.updateTienNo(bienSo, thanhTienPSC);
+
+        JOptionPane.showMessageDialog(this, "Lưu phiếu sửa chữa thành công.");
+        nhapPhieuMoi(); // Clear data for new input
+    }
+
+    private void lamMoiBangTienCong() {
+        DefaultTableModel model = (DefaultTableModel) table_tiencong.getModel();
+        model.setRowCount(0); // Clear existing data
+    }
+
+    private void lamMoiBangVTPT() {
+        DefaultTableModel model = (DefaultTableModel) table_vattuphutung.getModel();
+        model.setRowCount(0); // Clear existing data
+    }
+
+    private void lamMoiBangPhieuSuaChua() {
+        DefaultTableModel model = (DefaultTableModel) table_phieusuachuahienco.getModel();
+        model.setRowCount(0); // Clear existing data
+        loadPhieuSuaChuaHienCo();
+    }
+
+    private void loadPhieuSuaChuaHienCo() {
+        List<PhieuSuaChua> phieuSuaChuaList = phieuSuaChuaDAO.getAllPhieuSuaChua();
+        DefaultTableModel model = (DefaultTableModel) table_phieusuachuahienco.getModel();
+        for (PhieuSuaChua psc : phieuSuaChuaList) {
+            model.addRow(new Object[]{psc.getMaPhieuSuaChua(), psc.getBienSo(), psc.getNgaySuaChua(), psc.getThanhTienPSC()});
+        }
     }
 }
