@@ -26,9 +26,10 @@ public class LapPhieuNhapVTPTFrame extends JFrame {
     private JTextField textField_soluong_phieunhap;
     private JTable table_phieunhap;
     private VatTuPhuTungDAO vtptDAO;
-    private PhieuNhapVTPTDAO pnvtptDAO;
+    private PhieuNhapVTPTDAO pnvtptDAO; // khai báo cái phiếu nhập vật tư DAO
 
     public LapPhieuNhapVTPTFrame() {
+        // 2 thằng DAO này sẽ tác động đến các bảng trong database tương ứng
         vtptDAO = new VatTuPhuTungDAO();
         pnvtptDAO = new PhieuNhapVTPTDAO();
 
@@ -136,6 +137,7 @@ public class LapPhieuNhapVTPTFrame extends JFrame {
     }
 
     private void themVatTuPhuTung() {
+        // gán thông tin vật tư phụ tùng vừa nhập vào
         String tenVTPT = textField_tenvtpt_phieunhap.getText();
         double donGiaNhap;
         int soLuong;
@@ -147,12 +149,13 @@ public class LapPhieuNhapVTPTFrame extends JFrame {
             JOptionPane.showMessageDialog(this, "Đơn giá nhập và số lượng phải là số.");
             return;
         }
-
+        // tính thành tiền
         double thanhTien = donGiaNhap * soLuong;
 
         DefaultTableModel model = (DefaultTableModel) table_phieunhap.getModel();
-        model.addRow(new Object[]{tenVTPT, donGiaNhap, soLuong, thanhTien});
+        model.addRow(new Object[]{tenVTPT, donGiaNhap, soLuong, thanhTien}); // thêm lại vào bảng
 
+        // làm mới lại trường nhạp liệu
         textField_tenvtpt_phieunhap.setText("");
         textField_dongianhap_phieunhap.setText("");
         textField_soluong_phieunhap.setText("");
@@ -170,41 +173,44 @@ public class LapPhieuNhapVTPTFrame extends JFrame {
 
     private void hoanThanhPhieuNhap() {
         try {
-            String maPNVTPT = pnvtptDAO.getNextMaPNVTPT();
+            String maPNVTPT = pnvtptDAO.getNextMaPNVTPT(); // lấy ra cái mã phiếu nhập bằng sequence
             double tongThanhTien = 0.0;
             List<CTPhieuNhapVTPT> ctPhieuNhapList = new ArrayList<>();
 
-            DefaultTableModel model = (DefaultTableModel) table_phieunhap.getModel();
-            int rowCount = model.getRowCount();
+            DefaultTableModel model = (DefaultTableModel) table_phieunhap.getModel(); // lấy model của bảng
+            int rowCount = model.getRowCount(); // lấy số lượng dòng hiện có
 
             for (int i = 0; i < rowCount; i++) {
+                // lấy dữ liệu từng dòng
                 String tenVTPT = (String) model.getValueAt(i, 0);
                 double donGiaNhap = (double) model.getValueAt(i, 1);
                 int soLuong = (int) model.getValueAt(i, 2);
                 double thanhTien = (double) model.getValueAt(i, 3);
 
-                VatTuPhuTung existingVTPT = vtptDAO.getVatTuPhuTungByTen(tenVTPT);
+                VatTuPhuTung existingVTPT = vtptDAO.getVatTuPhuTungByTen(tenVTPT); // existingVTPT để kiểm tra có tồn tại vật tư phụ tùng trong hệ thống hay chưa
                 String maVTPT;
-                if (existingVTPT != null) {
+                if (existingVTPT != null) { // nếu đã tồn tại rồi
+                    // thì mình lấy ra tên của vật tư đó rồi cập nhật lại số lượng trong database
                     maVTPT = existingVTPT.getMaVTPT();
                     vtptDAO.updateSoLuongTon(maVTPT, soLuong);
                 } else {
-                    maVTPT = vtptDAO.getNextMaVTPT();
+                    // nếu chưa tồn tại rồi thì mình thêm mới vào database
+                    maVTPT = vtptDAO.getNextMaVTPT(); // hàm này củng tạo mã vật tư phụ tùng bằng sequence
                     double donGiaBan = donGiaNhap * 1.2;
                     VatTuPhuTung vtpt = new VatTuPhuTung(maVTPT, tenVTPT, donGiaNhap, donGiaBan, soLuong);
                     vtptDAO.addVatTuPhuTung(vtpt);
                 }
 
-                CTPhieuNhapVTPT ct = new CTPhieuNhapVTPT(maPNVTPT, maVTPT, soLuong, thanhTien);
+                CTPhieuNhapVTPT ct = new CTPhieuNhapVTPT(maPNVTPT, maVTPT, soLuong, thanhTien); // add luôn vào cái chi tiest phiếu nập.
                 ctPhieuNhapList.add(ct);
 
                 tongThanhTien += thanhTien;
             }
 
-            PhieuNhapVTPT pnvtpt = new PhieuNhapVTPT(maPNVTPT, tongThanhTien, new Date(System.currentTimeMillis()));
+            PhieuNhapVTPT pnvtpt = new PhieuNhapVTPT(maPNVTPT, tongThanhTien, new Date(System.currentTimeMillis())); // add vào phiếu nhập
             pnvtptDAO.addPhieuNhapVTPT(pnvtpt);
 
-            for (CTPhieuNhapVTPT ct : ctPhieuNhapList) {
+            for (CTPhieuNhapVTPT ct : ctPhieuNhapList) { // duyệt để add cái list chi tiết phiếu nhập này vào database
                 pnvtptDAO.addCTPhieuNhapVTPT(ct);
             }
 

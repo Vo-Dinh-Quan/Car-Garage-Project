@@ -1,15 +1,25 @@
 package View.panel;
 
+import Controller.XeController;
+import Models.entity.KhachHang;
+import Models.entity.Xe;
+
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 public class PanelTraCuu extends JPanel {
     private JTable table_danhsachxe;
     private JTextField textField_bienso_tracuu;
+    private JComboBox<String> comboBox_hieuxe_tracuu;
+    private XeController xeController;
 
     public PanelTraCuu() {
+        xeController = new XeController();
         setLayout(null);
         setBackground(Color.LIGHT_GRAY);
 
@@ -26,13 +36,7 @@ public class PanelTraCuu extends JPanel {
 
         table_danhsachxe = new JTable();
         table_danhsachxe.setModel(new DefaultTableModel(
-                new Object[][]{
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                },
+                new Object[][]{},
                 new String[]{
                         "Biển số xe", "Hiệu xe", "Mã khách hàng", "Tên khách hàng", "Ngày tiếp nhận", "Tiền nợ"
                 }
@@ -44,10 +48,14 @@ public class PanelTraCuu extends JPanel {
         label_hieuxe_tracuu.setBounds(10, 76, 216, 34);
         add(label_hieuxe_tracuu);
 
-        JComboBox comboBox_hieuxe_tracuu = new JComboBox();
+        comboBox_hieuxe_tracuu = new JComboBox<>();
         comboBox_hieuxe_tracuu.setFont(new Font("Segoe UI", Font.BOLD, 11));
         comboBox_hieuxe_tracuu.setBounds(10, 107, 216, 30);
         add(comboBox_hieuxe_tracuu);
+        String[] hieuXe = {"", "Toyota", "Honda", "Ford", "BMW", "Mercedes", "Audi", "Hyundai", "Kia", "Mazda", "Nissan"};
+        for (String hieu : hieuXe) {
+            comboBox_hieuxe_tracuu.addItem(hieu);
+        }
 
         JLabel label_bienso_tracuu = new JLabel("Biển số: ");
         label_bienso_tracuu.setFont(new Font("Segoe UI", Font.BOLD, 11));
@@ -69,5 +77,61 @@ public class PanelTraCuu extends JPanel {
         button_lammoi_tracuu.setFont(new Font("Segoe UI", Font.BOLD, 11));
         button_lammoi_tracuu.setBounds(10, 274, 216, 34);
         add(button_lammoi_tracuu);
+
+        loadDataToTable();
+
+        button_timkiem_tracuu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String hieuXe = (String) comboBox_hieuxe_tracuu.getSelectedItem();
+                String bienSo = textField_bienso_tracuu.getText();
+                searchXe(hieuXe, bienSo);
+            }
+        });
+
+        button_lammoi_tracuu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textField_bienso_tracuu.setText("");
+                comboBox_hieuxe_tracuu.setSelectedIndex(0);
+                loadDataToTable();
+            }
+        });
+    }
+
+    private void loadDataToTable() {
+        DefaultTableModel model = (DefaultTableModel) table_danhsachxe.getModel();
+        model.setRowCount(0); // Clear existing data
+
+        List<Xe> xeList = xeController.getAllXe();
+        for (Xe xe : xeList) {
+            KhachHang kh = xeController.getKhachHangById(xe.getMaKH());
+            model.addRow(new Object[]{
+                    xe.getBienSo(),
+                    xe.getTenHX(),
+                    xe.getMaKH(),
+                    kh != null ? kh.getHoTenKH() : "",
+                    xe.getNgayTiepNhan(),
+                    xe.getTienNo(),
+            });
+        }
+    }
+
+    private void searchXe(String hieuXe, String bienSo) {
+        DefaultTableModel model = (DefaultTableModel) table_danhsachxe.getModel();
+        model.setRowCount(0); // Clear existing data
+
+        List<Xe> xeList = xeController.searchXe(hieuXe, bienSo);
+        for (Xe xe : xeList) {
+            KhachHang kh = xeController.getKhachHangById(xe.getMaKH());
+            model.addRow(new Object[]{
+                    xe.getBienSo(),
+                    xe.getTenHX(),
+                    xe.getMaKH(),
+                    kh != null ? kh.getHoTenKH() : "",
+                    xe.getNgayTiepNhan(),
+                    xe.getTienNo(),
+            });
+        }
     }
 }

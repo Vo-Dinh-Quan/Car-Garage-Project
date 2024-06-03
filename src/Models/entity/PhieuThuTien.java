@@ -1,8 +1,9 @@
 package Models.entity;
 
-import java.sql.Date;
 
-public class PhieuThuTien {
+import java.util.Date;
+
+public class  PhieuThuTien {
     private String maPhieuThuTien;
     private String bienSo;
     private double soTienThu;

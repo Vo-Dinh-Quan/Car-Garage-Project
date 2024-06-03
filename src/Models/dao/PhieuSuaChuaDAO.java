@@ -2,8 +2,10 @@ package Models.dao;
 
 import Models.entity.CTSuDungVTPT;
 import Models.entity.PhieuSuaChua;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import Utils.Database_Connection;
@@ -43,6 +45,7 @@ public class PhieuSuaChuaDAO {
         }
     }
 
+    // Hàm tạo mã phiếu sửa chửa bằng sequences
     public String generateMaPhieuSuaChua() {
         String getSequenceSQL = "SELECT MaPhieuSuaChua_SEQ.NEXTVAL FROM dual";
         try (Connection conn = Database_Connection.getConnection();
@@ -56,18 +59,19 @@ public class PhieuSuaChuaDAO {
         }
         return null;
     }
+
     public List<PhieuSuaChua> getAllPhieuSuaChua() {
+        String query = "SELECT * FROM PHIEUSUACHUA";
         List<PhieuSuaChua> phieuSuaChuaList = new ArrayList<>();
-        String getAllPhieuSuaChuaSQL = "SELECT MaPhieuSuaChua, BienSo, NgaySuaChua, ThanhTienPSC FROM PHIEUSUACHUA";
         try (Connection conn = Database_Connection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(getAllPhieuSuaChuaSQL)) {
-            ResultSet rs = ps.executeQuery();
+             PreparedStatement ps = conn.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                String maPhieuSuaChua = rs.getString("MaPhieuSuaChua");
-                String bienSo = rs.getString("BienSo");
-                Date ngaySuaChua = rs.getDate("NgaySuaChua");
-                double thanhTienPSC = rs.getDouble("ThanhTienPSC");
-                PhieuSuaChua phieuSuaChua = new PhieuSuaChua(maPhieuSuaChua, bienSo, ngaySuaChua, thanhTienPSC);
+                PhieuSuaChua phieuSuaChua = new PhieuSuaChua();
+                phieuSuaChua.setMaPhieuSuaChua(rs.getString("MaPhieuSuaChua"));
+                phieuSuaChua.setBienSo(rs.getString("BienSo"));
+                phieuSuaChua.setNgaySuaChua(rs.getDate("NgaySuaChua"));
+                phieuSuaChua.setThanhTienPSC(rs.getDouble("ThanhTienPSC"));
                 phieuSuaChuaList.add(phieuSuaChua);
             }
         } catch (SQLException e) {

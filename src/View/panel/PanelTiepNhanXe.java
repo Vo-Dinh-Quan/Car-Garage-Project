@@ -62,8 +62,8 @@ public class PanelTiepNhanXe extends JPanel {
         // chỉnh kích cột thước các bảng
         TableColumnModel columnModel = table.getColumnModel();
         columnModel.getColumn(0).setPreferredWidth(100);
-        columnModel.getColumn(1).setPreferredWidth(70);
-        columnModel.getColumn(2).setPreferredWidth(200);
+        columnModel.getColumn(1).setPreferredWidth(100);
+        columnModel.getColumn(2).setPreferredWidth(170);
         columnModel.getColumn(3).setPreferredWidth(70);
         columnModel.getColumn(4).setPreferredWidth(100);
 
@@ -90,6 +90,7 @@ public class PanelTiepNhanXe extends JPanel {
         comboBox_tenkhachhang.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // cái listener này để đề xuất dựa trên thông tin khách hàng đã có sẵn vào các texField
                 String selectedName = (String) comboBox_tenkhachhang.getSelectedItem();
                 if (selectedName != null && !selectedName.isEmpty()) {
                     KhachHang khachHang = controller.getKhachHangByName(selectedName);
@@ -165,7 +166,7 @@ public class PanelTiepNhanXe extends JPanel {
         button_lammoibang_tiepnhanxe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                refreshTable();
+                refreshTable(); // hàm làm mới bảng
             }
         });
 
@@ -182,8 +183,8 @@ public class PanelTiepNhanXe extends JPanel {
                     String hoTenKH = textField_tenkhachhangmoi.getText();
                     String dienThoai = textField_sodienthoai.getText();
                     String email = textField_email.getText();
-                    KhachHang khachHang = controller.getKhachHangById(currentMaKH);
-                    if (khachHang != null) {
+                    KhachHang khachHang = controller.getKhachHangById(currentMaKH); // lấy thông tin của khách hàng hiện tại đnag sửa
+                    if (khachHang != null) { // nếu khách hàng tồn tại thì tiến hành cập nhật bằng hàm updateKhachhang
                         khachHang.setHoTenKH(hoTenKH);
                         khachHang.setDienThoai(dienThoai);
                         khachHang.setEmail(email);
@@ -195,7 +196,7 @@ public class PanelTiepNhanXe extends JPanel {
                             String hieuXe = (String) comboBox_hieuxe.getSelectedItem();
                             String ngayTiepNhanStr = textField_thoigiantiepnhan.getText();
 
-                            Date ngayTiepNhan = null;
+                            Date ngayTiepNhan = null; // định dạng lại ngày
                             try {
                                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                                 java.util.Date date = sdf.parse(ngayTiepNhanStr);
@@ -233,16 +234,17 @@ public class PanelTiepNhanXe extends JPanel {
 
         button_luumoi_tiepnhanxe.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) { // hành động lưu mới xảy ra 1 trong 2 trường hợp sau.
                 if (textField_tenkhachhangmoi.getText().isEmpty()) {
                     // Sử dụng tên trong comboBox_tenkhachhang
                     String hoTenKH = (String) comboBox_tenkhachhang.getSelectedItem();
                     String dienThoai = textField_sodienthoai.getText();
                     String email = textField_email.getText();
 
+                    // kiểm tra khách hàng đã tồn tại trong cơ sở dữ liệu chưa
                     KhachHang existingKhachHang = controller.getKhachHangByDetails(hoTenKH, dienThoai, email);
 
-                    if (existingKhachHang != null) {
+                    if (existingKhachHang != null) { // có thì chỉ lưu thêm thông tin xe thôi
                         boolean xeSaved = luuMoiThongTinXe(existingKhachHang.getMaKH());
                         if (xeSaved) {
                             JOptionPane.showMessageDialog(null, "Thông tin xe đã được lưu thành công!");
@@ -259,6 +261,7 @@ public class PanelTiepNhanXe extends JPanel {
                     if (maKH != null) {
                         boolean xeSaved = luuMoiThongTinXe(maKH);
                         if (xeSaved) {
+                            // load lại comboBox
                             loadKhachHangToComboBox();
                             comboBox_tenkhachhang.setSelectedItem(textField_tenkhachhangmoi.getText());
                             JOptionPane.showMessageDialog(null, "Thông tin khách hàng và xe đã được lưu thành công!");
@@ -283,11 +286,13 @@ public class PanelTiepNhanXe extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow >= 0) {
-                    currentBienSo = (String) table.getValueAt(selectedRow, 0);
+                    currentBienSo = (String) table.getValueAt(selectedRow, 0); // lấy biển số xe
+
+                    // lấy ra khách hàng và xe tương ứng
                     Xe xe = controller.getXeByBienSo(currentBienSo);
                     KhachHang kh = controller.getKhachHangById(xe.getMaKH());
 
-                    currentMaKH = kh.getMaKH();
+                    currentMaKH = kh.getMaKH(); // lưu lại mã khách hànghienejn tại để có thể kiểm tra thông tin khi sửa khách hàng
                     currentTienNo = xe.getTienNo(); // Lưu lại tiền nợ hiện tại của xe
                     textField_tenkhachhangmoi.setText(kh.getHoTenKH());
                     textField_sodienthoai.setText(kh.getDienThoai());
@@ -315,10 +320,11 @@ public class PanelTiepNhanXe extends JPanel {
                     String maKH = (String) table.getValueAt(selectedRow, 3);
                     int confirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa xe này không?", "Xác nhận xóa", JOptionPane.YES_NO_OPTION);
                     if (confirm == JOptionPane.YES_OPTION) {
+                        // Kiểm tra xem xe này có phải là xe cuối cùng của khách hàng hay không
                         boolean isLastCar = controller.isLastCarOfCustomer(maKH);
                         boolean xeDeleted = controller.deleteXe(bienSo);
-                        if (xeDeleted) {
-                            if (isLastCar) {
+                        if (xeDeleted) { // sau khi xe đã xóa
+                            if (isLastCar) { // nếu đây là chiếc xe cuối cùng của khach thì xóa luôn thông tin khách
                                 controller.deleteKhachHang(maKH);
                             }
                             JOptionPane.showMessageDialog(null, "Xóa thông tin xe thành công!");
@@ -415,6 +421,7 @@ public class PanelTiepNhanXe extends JPanel {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
 
+        // lấy lại các xe trong list xe và hiển thị ra lại bảng
         List<Xe> xeList = controller.getAllXe();
         for (Xe xe : xeList) {
             KhachHang kh = controller.getKhachHangById(xe.getMaKH());

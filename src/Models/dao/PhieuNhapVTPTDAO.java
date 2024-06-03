@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PhieuNhapVTPTDAO {
-    public String getNextMaPNVTPT() {
+    public String getNextMaPNVTPT() {// hàm này lấy mã phiếu nhập vật tư phụ tạo bằng sequnence trong database
         String nextMaPNVTPT = null;
         try (Connection connection = Database_Connection.getConnection();
              PreparedStatement statement = connection.prepareStatement("SELECT 'PNVTPT' || LPAD(SEQ_PNVTPT.NEXTVAL, 5, '0') AS NEXT_MA FROM DUAL")) {

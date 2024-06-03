@@ -134,19 +134,19 @@ public class PanelQuanLyVTPT extends JPanel {
     }
 
     private void loadDanhSachPhieuNhap() {
-        List<PhieuNhapVTPT> phieuNhapList = phieuNhapVTPTDAO.getAllPhieuNhapVTPT();
+        List<PhieuNhapVTPT> phieuNhapList = phieuNhapVTPTDAO.getAllPhieuNhapVTPT(); // lấy hét phiếu nhập trong database ra bằng cái lớp DAO tương ứng
         DefaultTableModel model = (DefaultTableModel) table_danhsachphieunhap.getModel();
-        model.setRowCount(0); // Clear existing data
+        model.setRowCount(0); // làm mới lại cái table
 
-        for (PhieuNhapVTPT pn : phieuNhapList) {
+        for (PhieuNhapVTPT pn : phieuNhapList) { // duyệt rồi nhập lại từng cái vào table
             model.addRow(new Object[]{pn.getMaPNVTPT(), pn.getThanhTienNhap(), pn.getNgayNhap()});
         }
     }
 
-    private void loadDanhSachVTPT() {
+    private void loadDanhSachVTPT() { // cái này tương tự cái loadDanhSachPhieuNhap
         List<VatTuPhuTung> vtptList = vatTuPhuTungDAO.getAllVatTuPhuTung();
         DefaultTableModel model = (DefaultTableModel) table_danhsachvtpt.getModel();
-        model.setRowCount(0); // Clear existing data
+        model.setRowCount(0);
 
         for (VatTuPhuTung vtpt : vtptList) {
             model.addRow(new Object[]{vtpt.getTenVTPT(), vtpt.getDonGiaNhap(), vtpt.getDonGiaBan(), vtpt.getSoLuongTon()});
@@ -154,15 +154,15 @@ public class PanelQuanLyVTPT extends JPanel {
     }
 
     private void searchVatTuPhuTung() {
-        String tenVTPT = textField_nhaptenvtpt.getText().trim();
+        String tenVTPT = textField_nhaptenvtpt.getText().trim(); // cái hàm .trim() để loại bỏ khoảng trắng
         if (tenVTPT.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập tên vật tư phụ tùng để tìm kiếm.");
             return;
         }
 
-        List<VatTuPhuTung> vtptList = vatTuPhuTungDAO.searchVatTuPhuTungByName(tenVTPT);
+        List<VatTuPhuTung> vtptList = vatTuPhuTungDAO.searchVatTuPhuTungByName(tenVTPT); // gọi cái hàm tìm theo tên của cái vật tư phụ tùng DAO.
         DefaultTableModel model = (DefaultTableModel) table_danhsachvtpt.getModel();
-        model.setRowCount(0); // Clear existing data
+        model.setRowCount(0);
 
         for (VatTuPhuTung vtpt : vtptList) {
             model.addRow(new Object[]{vtpt.getTenVTPT(), vtpt.getDonGiaNhap(), vtpt.getDonGiaBan(), vtpt.getSoLuongTon()});

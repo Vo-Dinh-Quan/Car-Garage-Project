@@ -87,7 +87,29 @@ public class XeDAO {
         }
         return xeList;
     }
-
+    public List<Xe> searchXe(String hieuXe, String bienSo) {
+        List<Xe> xeList = new ArrayList<>();
+        String query = "SELECT * FROM XE WHERE TENHX LIKE ? AND BienSo LIKE ?";
+        try (Connection conn = Database_Connection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, "%" + hieuXe + "%");
+            ps.setString(2, "%" + bienSo + "%");
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Xe xe = new Xe();
+                    xe.setBienSo(rs.getString("BienSo"));
+                    xe.setMaKH(rs.getString("MaKH"));
+                    xe.setTenHX(rs.getString("tenHX"));
+                    xe.setTienNo(rs.getDouble("TienNo"));
+                    xe.setNgayTiepNhan(rs.getDate("NgayTiepNhan"));
+                    xeList.add(xe);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return xeList;
+    }
     public boolean deleteXe(String bienSo) {
         String query = "DELETE FROM XE WHERE BienSo = ?";
         try (Connection conn = Database_Connection.getConnection();

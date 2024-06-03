@@ -86,6 +86,7 @@ public class PanelLapPhieuSuaChua extends JPanel {
                         "Mã phiếu sửa chữa", "Biển số xe", "Ngày nhận sửa", "Thành tiền (VND)"
                 }
         ));
+
         scrollPane_phieusuachuahienco.setViewportView(table_phieusuachuahienco);
 
         JLabel label_phieusuachuahienco = new JLabel("PHIẾU SỬA CHỮA HIỆN CÓ");
@@ -113,6 +114,11 @@ public class PanelLapPhieuSuaChua extends JPanel {
                 }
         ));
         scrollPane_table_tiencong.setViewportView(table_tiencong);
+        TableColumnModel columnModel1 = table_tiencong.getColumnModel();
+        columnModel1.getColumn(0).setPreferredWidth(70);
+        columnModel1.getColumn(1).setPreferredWidth(130);
+
+
 
         comboBox_biensoxe = new JComboBox<>();
         comboBox_biensoxe.setBounds(90, 52, 265, 30);
@@ -289,10 +295,12 @@ public class PanelLapPhieuSuaChua extends JPanel {
         }
     }
 
+
+    // hàm hiển thị các loại tiền công lên comboBox
     private void nhapTienCong() {
         String tenTC = (String) comboBox_tentiencong.getSelectedItem();
         if (tenTC != null && !tenTC.isEmpty()) {
-            TienCong tienCong = tienCongDAO.getTienCongByTen(tenTC);
+            TienCong tienCong = tienCongDAO.getTienCongByTen(tenTC); // lấy ra tiền công trong comboBox
             if (tienCong != null) {
                 DefaultTableModel model = (DefaultTableModel) table_tiencong.getModel();
                 model.addRow(new Object[]{tienCong.getMaTC(), tienCong.getTenTC(), tienCong.getChiPhiTC()});
@@ -305,16 +313,20 @@ public class PanelLapPhieuSuaChua extends JPanel {
     }
 
     private void nhapVTPT() {
-        String tenVTPT = (String) comboBox_VTPT.getSelectedItem();
-        int soLuong;
+        String tenVTPT = (String) comboBox_VTPT.getSelectedItem(); // lấy tên vtpt trong comboBox
+        int soLuong; // biến này
 
         try {
-            soLuong = Integer.parseInt(textField_soluong.getText());
+            soLuong = Integer.parseInt(textField_soluong.getText()); // lấy số lượng
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Số lượng phải là số.");
             return;
         }
-
+        int slton = vatTuPhuTungDAO.getSoLuongTonByTen(tenVTPT);
+        if (soLuong > slton) {
+            JOptionPane.showMessageDialog(this, "Số lượng vật tư phụ tùng không đủ.");
+            return;
+        }
         VatTuPhuTung vtpt = vatTuPhuTungDAO.getVatTuPhuTungByTen(tenVTPT);
         if (vtpt != null) {
             double donGiaBan = vtpt.getDonGiaBan();
@@ -342,8 +354,11 @@ public class PanelLapPhieuSuaChua extends JPanel {
         comboBox_biensoxe.setSelectedIndex(-1);
         comboBox_tentiencong.setSelectedIndex(-1);
         comboBox_VTPT.setSelectedIndex(-1);
+        loadVTPTToComboBox();
+        loadXeToComboBox();
     }
 
+    // Hàm tính tổng tiền phiếu sửa chữa
     private void hoanTatPhieuSuaChua() {
         double tongTien = 0.0;
 
@@ -366,13 +381,14 @@ public class PanelLapPhieuSuaChua extends JPanel {
         textField_tongtien.setText(String.valueOf(tongTien));
     }
 
+    // Hàm lưu phiếu sửa chữa
     private void luuPhieuSuaChua() {
         String bienSo = (String) comboBox_biensoxe.getSelectedItem();
         String ngaySuaChuaStr = textField_ngaysuachua.getText();
         double thanhTienPSC = Double.parseDouble(textField_tongtien.getText());
 
         Date ngaySuaChua;
-        try {
+        try { // format lại cái ngaySuaChuaStr
             ngaySuaChua = new SimpleDateFormat("dd/MM/yyyy").parse(ngaySuaChuaStr);
         } catch (ParseException e) {
             JOptionPane.showMessageDialog(this, "Ngày sửa chữa không đúng định dạng. Vui lòng nhập ngày theo định dạng dd/MM/yyyy.");
@@ -398,28 +414,29 @@ public class PanelLapPhieuSuaChua extends JPanel {
             // Trừ số lượng tồn
             vatTuPhuTungDAO.updateSoLuongTon(maVTPT, -soLuongSuDung);
         }
+        // trong cái phiếu sửa chữa DAO làm 1 lúc cả lưu VATTUPHUTUNG và lưu CTSuDungVTPT
         phieuSuaChuaDAO.saveCTSudungVTPT(ctSudungVTPTList);
 
         // Cập nhật tiền nợ của xe
         xeDAO.updateTienNo(bienSo, thanhTienPSC);
 
         JOptionPane.showMessageDialog(this, "Lưu phiếu sửa chữa thành công.");
-        nhapPhieuMoi(); // Clear data for new input
+        nhapPhieuMoi(); // làm mới lại
     }
 
     private void lamMoiBangTienCong() {
         DefaultTableModel model = (DefaultTableModel) table_tiencong.getModel();
-        model.setRowCount(0); // Clear existing data
+        model.setRowCount(0);
     }
 
     private void lamMoiBangVTPT() {
         DefaultTableModel model = (DefaultTableModel) table_vattuphutung.getModel();
-        model.setRowCount(0); // Clear existing data
+        model.setRowCount(0);
     }
 
     private void lamMoiBangPhieuSuaChua() {
         DefaultTableModel model = (DefaultTableModel) table_phieusuachuahienco.getModel();
-        model.setRowCount(0); // Clear existing data
+        model.setRowCount(0);
         loadPhieuSuaChuaHienCo();
     }
 

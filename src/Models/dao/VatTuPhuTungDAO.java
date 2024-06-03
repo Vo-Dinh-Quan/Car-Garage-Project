@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VatTuPhuTungDAO {
+
+    // hàm lấy ra vật tư phụ tùng dựa theo tên
     public VatTuPhuTung getVatTuPhuTungByTen(String tenVTPT) {
         VatTuPhuTung vtpt = null;
         try (Connection connection = Database_Connection.getConnection();
@@ -46,7 +48,7 @@ public class VatTuPhuTungDAO {
         return nextMaVTPT;
     }
 
-    public void addVatTuPhuTung(VatTuPhuTung vtpt) {
+    public void addVatTuPhuTung(VatTuPhuTung vtpt) { // hàm ny thêm vật tư phụ tùng mới vào database
         try (Connection connection = Database_Connection.getConnection();
              PreparedStatement statement = connection.prepareStatement("INSERT INTO VATTUPHUTUNG (MAVTPT, TENVTPT, DONGIANHAP, DONGIABAN, SOLUONGTON) VALUES (?, ?, ?, ?, ?)")) {
             statement.setString(1, vtpt.getMaVTPT());
@@ -60,7 +62,7 @@ public class VatTuPhuTungDAO {
         }
     }
 
-    public void updateSoLuongTon(String maVTPT, int soLuong) {
+    public void updateSoLuongTon(String maVTPT, int soLuong) { // cái hàm này cập nhật lại số lượng vật tư khi lập phiếu nhập
         try (Connection connection = Database_Connection.getConnection();
              PreparedStatement statement = connection.prepareStatement("UPDATE VATTUPHUTUNG SET SOLUONGTON = SOLUONGTON + ? WHERE MAVTPT = ?")) {
             statement.setInt(1, soLuong);
@@ -111,5 +113,19 @@ public class VatTuPhuTungDAO {
         }
         return vtptList;
     }
-
+    public int getSoLuongTonByTen(String tenVTPT) {
+        String query = "SELECT SoLuongTon FROM VatTuPhuTung WHERE TenVTPT = ?";
+        try (Connection conn = Database_Connection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, tenVTPT);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("SoLuongTon");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1; // Return -1 or any other value to indicate that the item was not found
+    }
 }

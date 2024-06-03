@@ -113,14 +113,14 @@ INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC01', 'Thay dầu động
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC02', 'Bảo dưỡng phanh', 700000);
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC03', 'Thay bugi', 300000);
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC04', 'Sửa chữa hộp số', 1500000);
-INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC05', 'Thay lọc gió', 200000);
+INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC05', 'Thay l�?c gió', 200000);
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC06', 'Kiểm tra ắc quy', 100000);
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC07', 'Bảo dưỡng hệ thống điện', 800000);
-INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC08', 'Sửa chữa điều hòa', 1200000);
+INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC08', 'Sửa chữa đi�?u hòa', 1200000);
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC09', 'Thay nước làm mát', 400000);
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC10', 'Bảo dưỡng khung gầm', 900000);
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC11', 'Sửa chữa hệ thống lái', 1100000);
-INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC12', 'Thay lọc dầu', 450000);
+INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC12', 'Thay l�?c dầu', 450000);
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC13', 'Bảo dưỡng hệ thống treo', 1000000);
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC14', 'Thay lốp xe', 550000);
 INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC15', 'Sửa chữa động cơ', 2000000);
@@ -128,6 +128,12 @@ INSERT INTO TIENCONG (MaTC, TenTC, ChiPhiTC) VALUES ('TC15', 'Sửa chữa độ
 COMMIT;
 
 CREATE SEQUENCE MaPhieuSuaChua_SEQ
+START WITH 1
+INCREMENT BY 1
+NOCACHE;
+
+
+CREATE SEQUENCE MaPhieuThuTien_SEQ
 START WITH 1
 INCREMENT BY 1
 NOCACHE;
