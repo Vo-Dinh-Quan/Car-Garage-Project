@@ -3,15 +3,19 @@ package Models.entity;
 public class CTSuDungVTPT {
     private String maPhieuSuaChua;
     private String maVTPT;
+    private String tenVTPT;
+    private double donGiaBan;
     private int soLuongSuDung;
     private double thanhTien;
 
     // Constructors
     public CTSuDungVTPT() {}
 
-    public CTSuDungVTPT(String maPhieuSuaChua, String maVTPT, int soLuongSuDung, double thanhTien) {
+    public CTSuDungVTPT(String maPhieuSuaChua, String maVTPT, String tenVTPT, double donGiaBan, int soLuongSuDung, double thanhTien) {
         this.maPhieuSuaChua = maPhieuSuaChua;
         this.maVTPT = maVTPT;
+        this.tenVTPT = tenVTPT;
+        this.donGiaBan = donGiaBan;
         this.soLuongSuDung = soLuongSuDung;
         this.thanhTien = thanhTien;
     }
@@ -31,6 +35,22 @@ public class CTSuDungVTPT {
 
     public void setMaVTPT(String maVTPT) {
         this.maVTPT = maVTPT;
+    }
+
+    public String getTenVTPT() {
+        return tenVTPT;
+    }
+
+    public void setTenVTPT(String tenVTPT) {
+        this.tenVTPT = tenVTPT;
+    }
+
+    public double getDonGiaBan() {
+        return donGiaBan;
+    }
+
+    public void setDonGiaBan(double donGiaBan) {
+        this.donGiaBan = donGiaBan;
     }
 
     public int getSoLuongSuDung() {

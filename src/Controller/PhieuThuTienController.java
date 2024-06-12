@@ -3,9 +3,7 @@ package Controller;
 import Models.dao.KhachHangDAO;
 import Models.dao.PhieuThuTienDAO;
 import Models.dao.XeDAO;
-import Models.entity.KhachHang;
-import Models.entity.PhieuThuTien;
-import Models.entity.Xe;
+import Models.entity.*;
 
 import java.util.List;
 
@@ -42,5 +40,14 @@ public class PhieuThuTienController {
 
     public List<PhieuThuTien> getAllPhieuThuTien() {
         return phieuThuTienDAO.getAllPhieuThuTien();
+    }
+    public KhachHang getKhachHangByBienSo(String bienSo) {
+        return KhachHangDAO.getKhachHangByBienSo(bienSo);
+    }
+    public List<CTSuDungVTPT> getCTSuDungVTPTByBienSo(String bienSo) {
+        return phieuThuTienDAO.getCTSuDungVTPTByBienSo(bienSo);
+    }
+    public List<SuDungTienCong> getSuDungTienCongByBienSo(String bienSo) {
+        return phieuThuTienDAO.getSuDungTienCongByBienSo(bienSo);
     }
 }

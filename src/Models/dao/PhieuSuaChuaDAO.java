@@ -29,14 +29,16 @@ public class PhieuSuaChuaDAO {
     }
 
     public void saveCTSudungVTPT(List<CTSuDungVTPT> ctSudungVTPTList) {
-        String insertCTSudungVTPTSQL = "INSERT INTO CT_SUDUNGVTPT (MaPhieuSuaChua, MaVTPT, SoLuongSuDung, ThanhTien) VALUES (?, ?, ?, ?)";
+        String insertCTSudungVTPTSQL = "INSERT INTO CT_SUDUNGVTPT (MaPhieuSuaChua, MaVTPT, TenVTPT, DonGiaBan, SoLuongSuDung, ThanhTien) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = Database_Connection.getConnection();
              PreparedStatement ps = conn.prepareStatement(insertCTSudungVTPTSQL)) {
             for (CTSuDungVTPT ct : ctSudungVTPTList) {
                 ps.setString(1, ct.getMaPhieuSuaChua());
                 ps.setString(2, ct.getMaVTPT());
-                ps.setInt(3, ct.getSoLuongSuDung());
-                ps.setDouble(4, ct.getThanhTien());
+                ps.setString(3, ct.getTenVTPT());
+                ps.setDouble(4, ct.getDonGiaBan());
+                ps.setInt(5, ct.getSoLuongSuDung());
+                ps.setDouble(6, ct.getThanhTien());
                 ps.addBatch();
             }
             ps.executeBatch();

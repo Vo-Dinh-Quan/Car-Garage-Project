@@ -116,6 +116,27 @@ public class KhachHangDAO {
         return false;
     }
 
+    public static KhachHang getKhachHangByBienSo(String bienSo) {
+        KhachHang khachHang = null;
+        String sql = "SELECT KH.* FROM KHACHHANG KH JOIN XE X ON KH.MaKH = X.MaKH WHERE X.BienSo = ?";
+        try (Connection conn = Database_Connection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, bienSo);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    khachHang = new KhachHang(
+                            rs.getString("MaKH"),
+                            rs.getString("HoTenKH"),
+                            rs.getString("DienThoai"),
+                            rs.getString("Email")
+                    );
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return khachHang;
+    }
 
 
 }

@@ -35,7 +35,6 @@ public class TaiKhoanDAO {
         } finally {
             Database_Connection.closeConnection(connection);
         }
-
         return taiKhoan;
     }
 

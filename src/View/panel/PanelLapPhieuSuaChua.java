@@ -1,14 +1,7 @@
 package View.panel;
 
-import Models.dao.TienCongDAO;
-import Models.dao.VatTuPhuTungDAO;
-import Models.dao.XeDAO;
-import Models.dao.PhieuSuaChuaDAO;
-import Models.entity.TienCong;
-import Models.entity.VatTuPhuTung;
-import Models.entity.Xe;
-import Models.entity.PhieuSuaChua;
-import Models.entity.CTSuDungVTPT;
+import Models.dao.*;
+import Models.entity.*;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -40,12 +33,14 @@ public class PanelLapPhieuSuaChua extends JPanel {
     private VatTuPhuTungDAO vatTuPhuTungDAO;
     private XeDAO xeDAO;
     private PhieuSuaChuaDAO phieuSuaChuaDAO;
+    private SuDungTienCongDAO suDungTienCongDAO;
 
     public PanelLapPhieuSuaChua() {
         tienCongDAO = new TienCongDAO();
         vatTuPhuTungDAO = new VatTuPhuTungDAO();
         xeDAO = new XeDAO();
         phieuSuaChuaDAO = new PhieuSuaChuaDAO();
+        suDungTienCongDAO = new SuDungTienCongDAO();
         setLayout(null);
         setBackground(Color.LIGHT_GRAY);
 
@@ -405,15 +400,32 @@ public class PanelLapPhieuSuaChua extends JPanel {
         List<CTSuDungVTPT> ctSudungVTPTList = new ArrayList<>();
         for (int i = 0; i < vtptModel.getRowCount(); i++) {
             String maVTPT = (String) vtptModel.getValueAt(i, 0);
+            String vattuphutung = (String) vtptModel.getValueAt(i, 1);
             int soLuongSuDung = (int) vtptModel.getValueAt(i, 2);
+            double donGia = (double) vtptModel.getValueAt(i, 3);
             double thanhTien = (double) vtptModel.getValueAt(i, 4);
 
-            CTSuDungVTPT ctSudungVTPT = new CTSuDungVTPT(maPhieuSuaChua, maVTPT, soLuongSuDung, thanhTien);
+
+            CTSuDungVTPT ctSudungVTPT = new CTSuDungVTPT(maPhieuSuaChua, maVTPT,vattuphutung, donGia, soLuongSuDung, thanhTien);
             ctSudungVTPTList.add(ctSudungVTPT);
 
             // Trừ số lượng tồn
             vatTuPhuTungDAO.updateSoLuongTon(maVTPT, -soLuongSuDung);
         }
+        // tạo chi tiết sử dụng tiền công
+        DefaultTableModel tiencongModel = (DefaultTableModel) table_tiencong.getModel();
+        List<SuDungTienCong> tiencongList = new ArrayList<>();
+        for (int i = 0; i < tiencongModel.getRowCount(); i++) {
+            String maTienCong = (String) tiencongModel.getValueAt(i, 0);
+            String tenTienCong = (String) tiencongModel.getValueAt(i, 1);
+            double chiPhi = (double) tiencongModel.getValueAt(i, 2);
+
+            SuDungTienCong suDungTienCong = new SuDungTienCong(maPhieuSuaChua, maTienCong,tenTienCong, chiPhi);
+            tiencongList.add(suDungTienCong);
+        }
+        // trong cái SuDungTienCongDAO viết hàm lưu danh sách sử dụng tiền công
+        suDungTienCongDAO.saveSuDungTienCongList(tiencongList);
+
         // trong cái phiếu sửa chữa DAO làm 1 lúc cả lưu VATTUPHUTUNG và lưu CTSuDungVTPT
         phieuSuaChuaDAO.saveCTSudungVTPT(ctSudungVTPTList);
 
