@@ -2,10 +2,8 @@ package Models.dao;
 
 import Models.entity.CTSuDungVTPT;
 import Models.entity.PhieuSuaChua;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import Utils.Database_Connection;
@@ -80,5 +78,20 @@ public class PhieuSuaChuaDAO {
             e.printStackTrace();
         }
         return phieuSuaChuaList;
+    }
+    public void addOrUpdateCTSuDungVTPT(String maPhieuSuaChua, String maVTPT, String tenVTPT, double donGiaBan, int soLuongSuDung, int delayTime) {
+        String sql = "{CALL add_content_to_ct_sudungvtpt(?, ?, ?, ?, ?, ?)}";
+        try (Connection conn = Database_Connection.getConnection();
+             CallableStatement cs = conn.prepareCall(sql)) {
+            cs.setString(1, maPhieuSuaChua);
+            cs.setString(2, maVTPT);
+            cs.setString(3, tenVTPT);
+            cs.setDouble(4, donGiaBan);
+            cs.setInt(5, soLuongSuDung);
+            cs.setInt(6, delayTime);
+            cs.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -121,6 +121,7 @@ CREATE SEQUENCE SEQ_VTPT START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE SEQ_PNVTPT START WITH 1 INCREMENT BY 1;
 
 INSERT INTO TAIKHOAN (CHUCVU, TENDANGNHAP, MATKHAU) VALUES ('Quan ly', 'vodinhminhquan','22521193');
+INSERT INTO TAIKHOAN (CHUCVU, TENDANGNHAP, MATKHAU) VALUES ('Quan ly', 'quancutephomaique','22521193');
 commit;
 
 INSERT INTO VATTUPHUTUNG (MaVTPT, TenVTPT, DonGiaNhap, DonGiaBan, SoLuongTon) VALUES ('VTPT001', 'Lốp xe', 1500000, 1800000, 20);
@@ -217,7 +218,7 @@ CREATE OR REPLACE PROCEDURE add_content_to_ct_sudungvtpt (
     v_count NUMBER;
 BEGIN
     -- Khóa bảng CT_SUDUNGVTPT để ngăn chặn ghi đè dữ liệu
-    --EXECUTE IMMEDIATE 'LOCK TABLE CT_SUDUNGVTPT IN EXCLUSIVE MODE';
+    EXECUTE IMMEDIATE 'LOCK TABLE CT_SUDUNGVTPT IN EXCLUSIVE MODE';
     -- Kiểm tra nếu hàng đã tồn tại
     SELECT COUNT(*)
     INTO v_count
@@ -281,17 +282,28 @@ COMPOUND TRIGGER
     BEGIN
         FOR i IN 1..vtpt_table.COUNT LOOP
             DECLARE
-                v_tongtien NUMBER;
+                v_tongtien_vtpt NUMBER;
+                v_tongtien_tiencong NUMBER;
+                v_tongtien_total NUMBER;
             BEGIN
                 -- Tính tổng tiền từ bảng CT_SUDUNGVTPT
                 SELECT NVL(SUM(CT.ThanhTien), 0)
-                INTO v_tongtien
+                INTO v_tongtien_vtpt
                 FROM CT_SUDUNGVTPT CT
                 WHERE CT.MaPhieuSuaChua = vtpt_table(i).maphieusuachua;
 
+                -- Tính tổng chi phí từ bảng SUDUNG_TIENCONG
+                SELECT NVL(SUM(TC.ChiPhiTC), 0)
+                INTO v_tongtien_tiencong
+                FROM SUDUNG_TIENCONG TC
+                WHERE TC.MaPhieuSuaChua = vtpt_table(i).maphieusuachua;
+
+                -- Tổng tiền = tổng tiền vật tư phụ tùng + tổng tiền công
+                v_tongtien_total := v_tongtien_vtpt + v_tongtien_tiencong;
+
                 -- Cập nhật lại giá trị ThanhTienPSC trên PHIEUSUACHUA
                 UPDATE PHIEUSUACHUA
-                SET ThanhTienPSC = v_tongtien
+                SET ThanhTienPSC = v_tongtien_total
                 WHERE MaPhieuSuaChua = vtpt_table(i).maphieusuachua;
 
                 -- Điều chỉnh số lượng tồn kho trong VATTUPHUTUNG
@@ -307,10 +319,11 @@ END trg_update_tongtien;
 
 
 
+
 -- Session 1:
 BEGIN
     -- Gọi hàm add_content_to_ct_sudungvtpt với thời gian tạm dừng 10 giây
-    add_content_to_ct_sudungvtpt('PSC8', 'VTPT004', 'Bugi', 120000, 1, 10); -- p_maphieusuachua = '2', p_mavtpt = '4', p_tenvtpt = 'Tên VTPT 4', p_dongiaban = 100000, p_soluongsu = 5, p_sleep_time = 10
+    add_content_to_ct_sudungvtpt('PSC8', 'VTPT004', 'Bugi', 120000, 1, 10); -- p_maphieusuachua = ' ', p_mavtpt = ' ', p_tenvtpt = ' ', p_dongiaban = , p_soluongsu = , p_sleep_time = 10
     COMMIT;
 END;
 /
@@ -318,7 +331,7 @@ END;
 -- Session 2: 
 BEGIN
     -- Gọi hàm add_content_to_ct_sudungvtpt với thời gian tạm dừng 0 giây
-    add_content_to_ct_sudungvtpt('PSC8', 'VTPT002', 'Phanh đĩa', 960000, 1, 0); -- p_maphieusuachua = '2', p_mavtpt = '3', p_tenvtpt = 'Tên VTPT 3', p_dongiaban = 50000, p_soluongsu = 2, p_sleep_time = 0
+    add_content_to_ct_sudungvtpt('PSC8', 'VTPT002', 'Phanh đĩa', 960000, 1, 0); -- p_maphieusuachua = ' ', p_mavtpt = ' ', p_tenvtpt = ' ', p_dongiaban = , p_soluongsu = , p_sleep_time = 0
 END;
 /
 -- Commit giao dịch
@@ -355,12 +368,12 @@ BEGIN
 END;
 /
 
--- Session 1: Đọc và xác minh số lượng tồn kho với mức độ cô lập cao
-SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 -- Session 1: Nhân viên 1 đọc số lượng tồn kho và kiểm tra
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 DECLARE
     v_soluong NUMBER;
 BEGIN
+
     -- Đọc số lượng tồn kho lần đầu
     SELECT SoLuongTon
     INTO v_soluong
@@ -371,7 +384,7 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Lần đọc đầu: ' || v_soluong);
 
     -- Mô phỏng thời gian trễ
-    sleep(5);
+    sleep(10);
 
     -- Đọc lại số lượng tồn kho
     SELECT SoLuongTon
@@ -381,22 +394,23 @@ BEGIN
 
     -- Ghi log hoặc xử lý sau lần đọc lại
     DBMS_OUTPUT.PUT_LINE('Lần đọc lại: ' || v_soluong);
+    COMMIT;
 END;
 /
--- Commit giao dịch
 COMMIT;
 
 
 -- Session 2: Nhân viên 2 cập nhật số lượng tồn kho
 BEGIN
-    -- Cập nhật số lượng tồn kho
     UPDATE VATTUPHUTUNG
-    SET SoLuongTon = SoLuongTon + 10
+    SET SoLuongTon = SoLuongTon + 2
     WHERE MaVTPT = 'VTPT001';
+    COMMIT;
 END;
 /
--- Commit giao dịch
 COMMIT;
+
+SELECT * FROM VATTUPHUTUNG WHERE MaVTPT = 'VTPT001';
 
 
 -- Kiểm tra tổng tiền của phiếu sửa chữa
@@ -409,4 +423,6 @@ SELECT * FROM SUDUNG_TIENCONG;
 
 SELECT * FROM TIENCONG;
 
-SELECT * FROM VATTUPHUTUNG;
+SELECT * FROM VATTUPHUTUNG WHERE MaVTPT = 'VTPT001';
+
+

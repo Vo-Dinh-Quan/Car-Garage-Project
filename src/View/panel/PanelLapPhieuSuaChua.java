@@ -251,6 +251,34 @@ public class PanelLapPhieuSuaChua extends JPanel {
                 lamMoiBangPhieuSuaChua();
             }
         });
+        JButton button_bosung = new JButton("Bổ sung");
+        button_bosung.setFont(new Font("Segoe UI", Font.BOLD, 11));
+        button_bosung.setBounds(643, 329, 89, 23);
+        add(button_bosung);
+        button_bosung.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String delayTime = JOptionPane.showInputDialog(
+                        PanelLapPhieuSuaChua.this,
+                        "Vui lòng nhập thời gian delay (giây):",
+                        "Nhập Thời Gian Delay",
+                        JOptionPane.PLAIN_MESSAGE
+                );
+                if (delayTime != null && !delayTime.trim().isEmpty()) {
+                    try {
+                        int delay = Integer.parseInt(delayTime);
+                        boSungChiTietVTPT(delay);
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(
+                                PanelLapPhieuSuaChua.this,
+                                "Vui lòng nhập số nguyên hợp lệ cho thời gian delay.",
+                                "Lỗi",
+                                JOptionPane.ERROR_MESSAGE
+                        );
+                    }
+                }
+            }
+        });
 
         // Load danh sách xe và VTPT lên comboBox
         loadXeToComboBox();
@@ -458,5 +486,30 @@ public class PanelLapPhieuSuaChua extends JPanel {
         for (PhieuSuaChua psc : phieuSuaChuaList) {
             model.addRow(new Object[]{psc.getMaPhieuSuaChua(), psc.getBienSo(), psc.getNgaySuaChua(), psc.getThanhTienPSC()});
         }
+    }
+    private void boSungChiTietVTPT(int delayTime) {
+        int selectedRow = table_phieusuachuahienco.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn một phiếu sửa chữa.");
+            return;
+        }
+
+        String maPhieuSuaChua = (String) table_phieusuachuahienco.getValueAt(selectedRow, 0);
+
+        // Lấy dữ liệu từ bảng VTPT
+        DefaultTableModel vtptModel = (DefaultTableModel) table_vattuphutung.getModel();
+        for (int i = 0; i < vtptModel.getRowCount(); i++) {
+            String maVTPT = (String) vtptModel.getValueAt(i, 0);
+            String tenVTPT = (String) vtptModel.getValueAt(i, 1);
+            double donGia = (double) vtptModel.getValueAt(i, 3);
+            int soLuong = (int) vtptModel.getValueAt(i, 2);
+
+            vatTuPhuTungDAO.updateSoLuongTon(maVTPT, -soLuong); // Cập nhật lại số lượng tồn
+
+            // Gọi procedure để thêm hoặc cập nhật chi tiết sử dụng vật tư phụ tùng
+            phieuSuaChuaDAO.addOrUpdateCTSuDungVTPT(maPhieuSuaChua, maVTPT, tenVTPT, donGia, soLuong, delayTime);
+        }
+
+        JOptionPane.showMessageDialog(this, "Bổ sung chi tiết thành công.");
     }
 }
