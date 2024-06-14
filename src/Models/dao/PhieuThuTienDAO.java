@@ -185,4 +185,17 @@ public class PhieuThuTienDAO {
         return phieuThuTienList;
     }
 
+    public boolean updateTienNo(String bienSo, double tienNoMoi) {
+        String sql = "UPDATE XE SET TienNo = ? WHERE BienSo = ?";
+        try (Connection conn = Database_Connection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setDouble(1, tienNoMoi);
+            ps.setString(2, bienSo);
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

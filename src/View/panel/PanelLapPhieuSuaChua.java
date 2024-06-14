@@ -5,11 +5,13 @@ import Models.entity.*;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,6 +36,20 @@ public class PanelLapPhieuSuaChua extends JPanel {
     private XeDAO xeDAO;
     private PhieuSuaChuaDAO phieuSuaChuaDAO;
     private SuDungTienCongDAO suDungTienCongDAO;
+
+    // Định nghĩa DecimalFormat để định dạng số tiền
+    private static final DecimalFormat df = new DecimalFormat("#,###");
+
+    // Định nghĩa CurrencyTableCellRenderer để định dạng hiển thị số tiền
+    class CurrencyTableCellRenderer extends DefaultTableCellRenderer {
+        @Override
+        protected void setValue(Object value) {
+            if (value instanceof Number) {
+                value = df.format((Number) value);
+            }
+            super.setValue(value);
+        }
+    }
 
     public PanelLapPhieuSuaChua() {
         tienCongDAO = new TienCongDAO();
@@ -69,6 +85,10 @@ public class PanelLapPhieuSuaChua extends JPanel {
         columnModel.getColumn(2).setPreferredWidth(30);
         columnModel.getColumn(3).setPreferredWidth(30);
 
+        // Áp dụng CurrencyTableCellRenderer để định dạng các cột đơn giá và thành tiền
+        columnModel.getColumn(3).setCellRenderer(new CurrencyTableCellRenderer());
+        columnModel.getColumn(4).setCellRenderer(new CurrencyTableCellRenderer());
+
         JScrollPane scrollPane_phieusuachuahienco = new JScrollPane();
         scrollPane_phieusuachuahienco.setBounds(10, 363, 821, 141);
         add(scrollPane_phieusuachuahienco);
@@ -83,6 +103,9 @@ public class PanelLapPhieuSuaChua extends JPanel {
         ));
 
         scrollPane_phieusuachuahienco.setViewportView(table_phieusuachuahienco);
+
+        // Áp dụng CurrencyTableCellRenderer để định dạng cột thành tiền
+        table_phieusuachuahienco.getColumnModel().getColumn(3).setCellRenderer(new CurrencyTableCellRenderer());
 
         JLabel label_phieusuachuahienco = new JLabel("PHIẾU SỬA CHỮA HIỆN CÓ");
         label_phieusuachuahienco.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -113,7 +136,8 @@ public class PanelLapPhieuSuaChua extends JPanel {
         columnModel1.getColumn(0).setPreferredWidth(70);
         columnModel1.getColumn(1).setPreferredWidth(130);
 
-
+        // Áp dụng CurrencyTableCellRenderer để định dạng cột chi phí
+        columnModel1.getColumn(2).setCellRenderer(new CurrencyTableCellRenderer());
 
         comboBox_biensoxe = new JComboBox<>();
         comboBox_biensoxe.setBounds(90, 52, 265, 30);
@@ -251,6 +275,7 @@ public class PanelLapPhieuSuaChua extends JPanel {
                 lamMoiBangPhieuSuaChua();
             }
         });
+
         JButton button_bosung = new JButton("Bổ sung");
         button_bosung.setFont(new Font("Segoe UI", Font.BOLD, 11));
         button_bosung.setBounds(643, 329, 89, 23);
@@ -318,8 +343,7 @@ public class PanelLapPhieuSuaChua extends JPanel {
         }
     }
 
-
-    // hàm hiển thị các loại tiền công lên comboBox
+    // Hàm hiển thị các loại tiền công lên comboBox
     private void nhapTienCong() {
         String tenTC = (String) comboBox_tentiencong.getSelectedItem();
         if (tenTC != null && !tenTC.isEmpty()) {
@@ -337,7 +361,7 @@ public class PanelLapPhieuSuaChua extends JPanel {
 
     private void nhapVTPT() {
         String tenVTPT = (String) comboBox_VTPT.getSelectedItem(); // lấy tên vtpt trong comboBox
-        int soLuong; // biến này
+        int soLuong;
 
         try {
             soLuong = Integer.parseInt(textField_soluong.getText()); // lấy số lượng
@@ -401,17 +425,27 @@ public class PanelLapPhieuSuaChua extends JPanel {
             tongTien += chiPhi;
         }
 
-        textField_tongtien.setText(String.valueOf(tongTien));
+        textField_tongtien.setText(df.format(tongTien));
     }
 
     // Hàm lưu phiếu sửa chữa
     private void luuPhieuSuaChua() {
         String bienSo = (String) comboBox_biensoxe.getSelectedItem();
         String ngaySuaChuaStr = textField_ngaysuachua.getText();
-        double thanhTienPSC = Double.parseDouble(textField_tongtien.getText());
+        // Loại bỏ dấu phẩy trong chuỗi số tiền và thay thế dấu phẩy (,) thành dấu chấm (.) nếu cần
+        String tongTienStr = textField_tongtien.getText().replace(",", "").replace(".", "");
+        double thanhTienPSC;
+
+        try {
+            // Chuyển đổi chuỗi thành số thập phân
+            thanhTienPSC = Double.parseDouble(tongTienStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Tổng tiền không hợp lệ. Vui lòng kiểm tra lại.");
+            return;
+        }
 
         Date ngaySuaChua;
-        try { // format lại cái ngaySuaChuaStr
+        try {
             ngaySuaChua = new SimpleDateFormat("dd/MM/yyyy").parse(ngaySuaChuaStr);
         } catch (ParseException e) {
             JOptionPane.showMessageDialog(this, "Ngày sửa chữa không đúng định dạng. Vui lòng nhập ngày theo định dạng dd/MM/yyyy.");
@@ -433,14 +467,13 @@ public class PanelLapPhieuSuaChua extends JPanel {
             double donGia = (double) vtptModel.getValueAt(i, 3);
             double thanhTien = (double) vtptModel.getValueAt(i, 4);
 
-
-            CTSuDungVTPT ctSudungVTPT = new CTSuDungVTPT(maPhieuSuaChua, maVTPT,vattuphutung, donGia, soLuongSuDung, thanhTien);
+            CTSuDungVTPT ctSudungVTPT = new CTSuDungVTPT(maPhieuSuaChua, maVTPT, vattuphutung, donGia, soLuongSuDung, thanhTien);
             ctSudungVTPTList.add(ctSudungVTPT);
 
             // Trừ số lượng tồn
             vatTuPhuTungDAO.updateSoLuongTon(maVTPT, -soLuongSuDung);
         }
-        // tạo chi tiết sử dụng tiền công
+        // Tạo chi tiết sử dụng tiền công
         DefaultTableModel tiencongModel = (DefaultTableModel) table_tiencong.getModel();
         List<SuDungTienCong> tiencongList = new ArrayList<>();
         for (int i = 0; i < tiencongModel.getRowCount(); i++) {
@@ -448,13 +481,13 @@ public class PanelLapPhieuSuaChua extends JPanel {
             String tenTienCong = (String) tiencongModel.getValueAt(i, 1);
             double chiPhi = (double) tiencongModel.getValueAt(i, 2);
 
-            SuDungTienCong suDungTienCong = new SuDungTienCong(maPhieuSuaChua, maTienCong,tenTienCong, chiPhi);
+            SuDungTienCong suDungTienCong = new SuDungTienCong(maPhieuSuaChua, maTienCong, tenTienCong, chiPhi);
             tiencongList.add(suDungTienCong);
         }
-        // trong cái SuDungTienCongDAO viết hàm lưu danh sách sử dụng tiền công
+        // Lưu danh sách sử dụng tiền công
         suDungTienCongDAO.saveSuDungTienCongList(tiencongList);
 
-        // trong cái phiếu sửa chữa DAO làm 1 lúc cả lưu VATTUPHUTUNG và lưu CTSuDungVTPT
+        // Lưu chi tiết sử dụng vật tư phụ tùng
         phieuSuaChuaDAO.saveCTSudungVTPT(ctSudungVTPTList);
 
         // Cập nhật tiền nợ của xe
@@ -463,6 +496,7 @@ public class PanelLapPhieuSuaChua extends JPanel {
         JOptionPane.showMessageDialog(this, "Lưu phiếu sửa chữa thành công.");
         nhapPhieuMoi(); // làm mới lại
     }
+
 
     private void lamMoiBangTienCong() {
         DefaultTableModel model = (DefaultTableModel) table_tiencong.getModel();
@@ -484,9 +518,15 @@ public class PanelLapPhieuSuaChua extends JPanel {
         List<PhieuSuaChua> phieuSuaChuaList = phieuSuaChuaDAO.getAllPhieuSuaChua();
         DefaultTableModel model = (DefaultTableModel) table_phieusuachuahienco.getModel();
         for (PhieuSuaChua psc : phieuSuaChuaList) {
-            model.addRow(new Object[]{psc.getMaPhieuSuaChua(), psc.getBienSo(), psc.getNgaySuaChua(), psc.getThanhTienPSC()});
+            model.addRow(new Object[]{
+                    psc.getMaPhieuSuaChua(),
+                    psc.getBienSo(),
+                    psc.getNgaySuaChua(),
+                    psc.getThanhTienPSC()
+            });
         }
     }
+
     private void boSungChiTietVTPT(int delayTime) {
         int selectedRow = table_phieusuachuahienco.getSelectedRow();
         if (selectedRow == -1) {

@@ -162,16 +162,18 @@ public class XeDAO {
         return false;
     }
 
-    public void updateTienNo(String bienSo, double soTienNoMoi) {
-        String query = "UPDATE XE SET TienNo = TienNo + ? WHERE BienSo = ?";
+    public boolean updateTienNo(String bienSo, double tienNo) {
+        String query = "UPDATE XE SET TienNo = ? WHERE BienSo = ?";
         try (Connection conn = Database_Connection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setDouble(1, soTienNoMoi);
-            pstmt.setString(2, bienSo);
-            pstmt.executeUpdate();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setDouble(1, tienNo);
+            stmt.setString(2, bienSo);
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
 

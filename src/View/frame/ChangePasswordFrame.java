@@ -81,16 +81,5 @@ public class ChangePasswordFrame extends JFrame {
             }
         });
     }
-
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(() -> {
-//            try {
-//                String currentUsername = "user"; // Thay thế bằng cách lấy username thực tế từ phiên đăng nhập
-//                ChangePasswordFrame frame = new ChangePasswordFrame(currentUsername);
-//                frame.setVisible(true);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
+    
 }

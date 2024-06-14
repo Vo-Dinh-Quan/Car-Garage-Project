@@ -2,6 +2,7 @@ package View.panel;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import Controller.BaoCaoController;
@@ -10,20 +11,35 @@ import Models.entity.BaoCaoDoanhSo;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PanelBaoCao extends JPanel {
+    private final JComboBox<String> comboBox_thang_1;
     private JTable table_baocaodoanhso;
     private JTextField textField_nam;
-    private JComboBox comboBox_thang;
+    private JComboBox<String> comboBox_thang;
     private List<BaoCaoDoanhSo> datas;
     private BaoCaoController baoCaoController;
-    private String[][] datasTable;
-    private JComboBox comboBox_thang_1;
     private DefaultTableModel tableModel;
     private DefaultComboBoxModel<String> comboboxModel;
+
+    // Định nghĩa DecimalFormat để định dạng số tiền
+    private static final DecimalFormat df = new DecimalFormat("#,###");
+
+    // Định nghĩa CurrencyTableCellRenderer để định dạng hiển thị số tiền
+    class CurrencyTableCellRenderer extends DefaultTableCellRenderer {
+        @Override
+        protected void setValue(Object value) {
+            if (value instanceof Number) {
+                value = df.format((Number) value);
+            }
+            super.setValue(value);
+        }
+    }
+
     public PanelBaoCao() {
         setLayout(null);
         setBackground(Color.LIGHT_GRAY);
@@ -69,12 +85,12 @@ public class PanelBaoCao extends JPanel {
         panel_baocaodoanhthu.add(textField_nam);
         textField_nam.setText(String.valueOf(today.getYear()));
 
-        comboBox_thang = new JComboBox();
+        comboBox_thang = new JComboBox<>();
         comboBox_thang.setFont(new Font("Segoe UI", Font.BOLD, 11));
         comboBox_thang.setBounds(84, 58, 145, 35);
         panel_baocaodoanhthu.add(comboBox_thang);
 
-        String[] months = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+        String[] months = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(months);
         comboBox_thang.setModel(model);
         comboBox_thang.setSelectedIndex(today.getMonthValue() - 1);
@@ -89,7 +105,7 @@ public class PanelBaoCao extends JPanel {
         button_xoabaocao.setBounds(250, 103, 132, 35);
         panel_baocaodoanhthu.add(button_xoabaocao);
 
-        comboBox_thang_1 = new JComboBox();
+        comboBox_thang_1 = new JComboBox<String>();
         comboBox_thang_1.setFont(new Font("Segoe UI", Font.BOLD, 11));
         comboBox_thang_1.setBounds(681, 57, 145, 35);
         panel_baocaodoanhthu.add(comboBox_thang_1);
@@ -100,14 +116,13 @@ public class PanelBaoCao extends JPanel {
         panel_baocaodoanhthu.add(label_mabaocao);
 
         JButton button_timkiem = new JButton("Tìm kiếm ");
-        button_timkiem.setFont(new Font("Tahoma", Font.BOLD, 11));
+        button_timkiem.setFont(new Font("Segoe UI", Font.BOLD, 11));
         button_timkiem.setBounds(707, 103, 119, 35);
         panel_baocaodoanhthu.add(button_timkiem);
 
         button_lapbaocao.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // TODO Auto-generated method stub
                 lapBaoCao();
             }
         });
@@ -115,148 +130,114 @@ public class PanelBaoCao extends JPanel {
         button_timkiem.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // TODO Auto-generated method stub
                 search();
             }
         });
         button_xoabaocao.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // TODO Auto-generated method stub
                 xoa();
             }
         });
         baoCaoController = new BaoCaoController();
         getDatas();
     }
+
     private void search() {
-        if (comboBox_thang_1.getSelectedIndex() == 0)
-        {
+        if (comboBox_thang_1.getSelectedIndex() == 0) {
             setTable(datas);
             return;
         }
-        String ma = comboBox_thang_1.getSelectedItem().toString();
-        List<BaoCaoDoanhSo> list = new ArrayList();
-        for (int i = 0; i < datas.size(); i++)
-            if (datas.get(i).getMaBCDS().equals(ma))
-            {
-                list.add(datas.get(i));
+        String ma = (String) comboBox_thang_1.getSelectedItem();
+        List<BaoCaoDoanhSo> list = new ArrayList<>();
+        for (BaoCaoDoanhSo data : datas) {
+            if (data.getMaBCDS().equals(ma)) {
+                list.add(data);
                 setTable(list);
                 return;
             }
+        }
     }
+
     private void setTable(List<BaoCaoDoanhSo> datas) {
         String[] columns = new String[]{
                 "Mã báo cáo", "Tháng", "Năm", "Tổng doanh thu"
         };
-        datasTable = new String[datas.size()][columns.length];
-        for (int i = 0; i < datas.size(); i++)
-        {
+        Object[][] datasTable = new Object[datas.size()][columns.length];
+        for (int i = 0; i < datas.size(); i++) {
             datasTable[i][0] = datas.get(i).getMaBCDS();
-            datasTable[i][1] = String.valueOf(datas.get(i).getThang());
-            datasTable[i][2] = String.valueOf(datas.get(i).getNam());
-            datasTable[i][3] = String.valueOf(datas.get(i).getTongDoanhThu());
+            datasTable[i][1] = datas.get(i).getThang();
+            datasTable[i][2] = datas.get(i).getNam();
+            datasTable[i][3] = datas.get(i).getTongDoanhThu(); // giữ nguyên dạng số
         }
-        tableModel = new DefaultTableModel(
-                datasTable, columns
-        ) {
+        tableModel = new DefaultTableModel(datasTable, columns) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                // TODO Auto-generated method stub
                 return false;
             }
         };
         table_baocaodoanhso.setModel(tableModel);
+        table_baocaodoanhso.getColumnModel().getColumn(3).setCellRenderer(new CurrencyTableCellRenderer());
     }
+
     private void getDatas() {
         datas = baoCaoController.getAll();
         if (datas == null) return;
         setTable(datas);
         initCombobox();
     }
+
     private void initCombobox() {
         String[] comboboxId = new String[datas.size() + 1];
         comboboxId[0] = "Chọn mã";
-        for (int i = 0; i < datas.size(); i++)
+        for (int i = 0; i < datas.size(); i++) {
             comboboxId[i + 1] = datas.get(i).getMaBCDS();
+        }
         comboboxModel = new DefaultComboBoxModel<>(comboboxId);
         comboBox_thang_1.setModel(comboboxModel);
     }
+
+
     private void lapBaoCao() {
         int month = comboBox_thang.getSelectedIndex() + 1;
         int year;
         try {
-            year = Integer.valueOf(textField_nam.getText());
+            year = Integer.parseInt(textField_nam.getText());
         } catch (Exception e) {
-            // TODO: handle exception
             JOptionPane.showMessageDialog(this, "Năm không hợp lệ", "Thông báo", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (datas.size() > 0) { // kiểm tra các báo cáo đã lập
-            for (int i = 0; i < datas.size(); i++) {
-                BaoCaoDoanhSo bc = datas.get(i);
-                if (bc.getThang() == month &&
-                        bc.getNam() == year)
-                {
+        if (datas.size() > 0) {
+            for (BaoCaoDoanhSo bc : datas) {
+                if (bc.getThang() == month && bc.getNam() == year) {
                     JOptionPane.showMessageDialog(this, "Tháng " + month + " năm " + year +
-                                    " đã được lập báo cáo trước đó"
-                            , "Thông báo", JOptionPane.ERROR_MESSAGE);
+                            " đã được lập báo cáo trước đó", "Thông báo", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }
         }
         BaoCaoDoanhSo baoCaoDoanhSo = baoCaoController.add(month, year);
         if (baoCaoDoanhSo == null) {
-            JOptionPane.showMessageDialog(this, "Lập báo cáo thất bại"
-                    , "Thông báo", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Lập báo cáo thất bại", "Thông báo", JOptionPane.ERROR_MESSAGE);
         } else {
             if (datas == null) {
-                datas = new ArrayList();
+                datas = new ArrayList<>();
             }
             if (datas.size() == 0) {
                 datas.add(baoCaoDoanhSo);
                 setTable(datas);
-            }
-            else {
-                if (datas.get(0).getNam() > year ||
-                        (datas.get(0).getNam() == year && datas.get(0).getThang() > month)) {
-                    datas.add(0, baoCaoDoanhSo);
-                    setTable(datas);
-                    initCombobox();
-                    return;
-                }
-                for (int i = 0; i < datas.size(); i++) {
-                    BaoCaoDoanhSo bc = datas.get(i);
-                    if ((year == bc.getNam() && month > bc.getThang()) ||
-                            year > bc.getNam())
-                    {
-                        datas.add(i, baoCaoDoanhSo);
-                        setTable(datas);
-                        initCombobox();
-                        return;
-                    }
-                }
+            } else {
                 datas.add(baoCaoDoanhSo);
-                if (comboBox_thang_1.getSelectedIndex() == 0) {
-                    Object[] newRow = new Object[4];
-                    newRow[0] = baoCaoDoanhSo.getMaBCDS();
-                    newRow[1] = baoCaoDoanhSo.getThang();
-                    newRow[2] = baoCaoDoanhSo.getNam();
-                    newRow[3] = baoCaoDoanhSo.getTongDoanhThu();
-                    tableModel.addRow(newRow);
-                    comboboxModel.addElement(baoCaoDoanhSo.getMaBCDS());
-                } else {
-                    setTable(datas);
-                    initCombobox();
-                }
+                setTable(datas);
             }
+            comboboxModel.addElement(baoCaoDoanhSo.getMaBCDS()); // Cập nhật combobox
         }
     }
+
+
     private void xoa() {
-        if (table_baocaodoanhso.getSelectedRowCount() == 0)
-        {
-            JOptionPane.showMessageDialog(this, "Phải chọn 1 hàng dữ liệu trên bảng"
-                    , "Thông báo", JOptionPane.WARNING_MESSAGE);
+        if (table_baocaodoanhso.getSelectedRowCount() == 0) {
+            JOptionPane.showMessageDialog(this, "Phải chọn 1 hàng dữ liệu trên bảng", "Thông báo", JOptionPane.WARNING_MESSAGE);
             return;
         }
         int confirm = JOptionPane.showConfirmDialog(this,
@@ -265,13 +246,24 @@ public class PanelBaoCao extends JPanel {
 
         if (confirm != JOptionPane.YES_OPTION)
             return;
+
         int index = table_baocaodoanhso.getSelectedRow();
         if (!baoCaoController.remove(datas.get(index).getMaBCDS())) {
-            JOptionPane.showMessageDialog(this, "Xóa thất bại"
-                    , "Thông báo", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Xóa thất bại", "Thông báo", JOptionPane.ERROR_MESSAGE);
             return;
         }
+
+        String maBCDS = datas.get(index).getMaBCDS(); // Lưu mã báo cáo doanh số để xóa trong combobox
+        datas.remove(index);
         tableModel.removeRow(index);
-        comboboxModel.removeElementAt(index);
+
+        // Cập nhật comboboxModel, bỏ qua "Chọn mã"
+        for (int i = 1; i < comboboxModel.getSize(); i++) {
+            if (comboboxModel.getElementAt(i).equals(maBCDS)) {
+                comboboxModel.removeElementAt(i);
+                break;
+            }
+        }
     }
+
 }

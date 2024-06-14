@@ -27,6 +27,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -82,10 +83,10 @@ public class PanelLapPhieuThuTien extends JPanel {
         label_hotenchuxe.setBounds(452, 83, 109, 29);
         add(label_hotenchuxe);
 
-        JLabel label_sotienthu = new JLabel("Số tiền thu:");
-        label_sotienthu.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 11));
-        label_sotienthu.setBounds(20, 130, 109, 29);
-        add(label_sotienthu);
+//        JLabel label_sotienthu = new JLabel("Số tiền thu:");
+//        label_sotienthu.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 11));
+//        label_sotienthu.setBounds(20, 130, 109, 29);
+//        add(label_sotienthu);
 
         JLabel label_sodienthoai_phieuthutien = new JLabel("Số điện thoại:");
         label_sodienthoai_phieuthutien.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 11));
@@ -97,6 +98,15 @@ public class PanelLapPhieuThuTien extends JPanel {
         textField_sodienthoai_phieuthutien.setBounds(571, 142, 264, 30);
         add(textField_sodienthoai_phieuthutien);
 
+//        textField_sotienthu = new JTextField();
+//        textField_sotienthu.setColumns(10);
+//        textField_sotienthu.setBounds(139, 129, 282, 30);
+//        add(textField_sotienthu);
+
+        JLabel label_sotienthu = new JLabel("Số tiền thu:");
+        label_sotienthu.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 11));
+        label_sotienthu.setBounds(20, 130, 109, 29);
+        add(label_sotienthu);
         textField_sotienthu = new JTextField();
         textField_sotienthu.setColumns(10);
         textField_sotienthu.setBounds(139, 129, 282, 30);
@@ -255,8 +265,25 @@ public class PanelLapPhieuThuTien extends JPanel {
     private void luuPhieuThuTien() {
         String bienSo = (String) comboBox_biensoxe_phieuthutien.getSelectedItem();
         String ngayThuTienStr = textField_ngaythutien_phieuthutien.getText();
-        double soTienThu = Double.parseDouble(textField_sotienthu.getText());
 
+        // Lấy và kiểm tra số tiền thu và số tiền nợ
+        double soTienThu;
+        double soTienNo;
+        try {
+            soTienThu = Double.parseDouble(textField_sotienthu.getText());
+            soTienNo = Double.parseDouble(textField_sotienno_phieuthutien.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Số tiền nhập vào không hợp lệ.");
+            return;
+        }
+
+        // Kiểm tra số tiền thu không được vượt quá số tiền nợ
+        if (soTienThu > soTienNo) {
+            JOptionPane.showMessageDialog(this, "Số tiền thu không được vượt quá số tiền nợ.");
+            return;
+        }
+
+        // Xử lý định dạng ngày
         Date ngayThuTien;
         try {
             ngayThuTien = new SimpleDateFormat("dd/MM/yyyy").parse(ngayThuTienStr);
@@ -265,13 +292,27 @@ public class PanelLapPhieuThuTien extends JPanel {
             return;
         }
 
+        // Tạo mã phiếu thu tiền
         String maPhieuThuTien = controller.generateMaPhieuThuTien();
         PhieuThuTien phieuThuTien = new PhieuThuTien(maPhieuThuTien, bienSo, soTienThu, ngayThuTien);
+
+        // Lưu phiếu thu tiền vào cơ sở dữ liệu
         controller.savePhieuThuTien(phieuThuTien);
+
+        // Cập nhật tiền nợ của xe
+        Xe xe = controller.getXeByBienSo(bienSo);
+        if (xe != null) {
+            double tienNoMoi = xe.getTienNo() - soTienThu;
+            xe.setTienNo(tienNoMoi);
+            controller.updateTienNoXe(xe); // Hàm này bạn sẽ thêm vào controller để cập nhật tiền nợ xe trong cơ sở dữ liệu
+        }
 
         JOptionPane.showMessageDialog(this, "Lưu phiếu thu tiền thành công.");
         clearFields();
+        refresh_table_danhsachphieuthu();
     }
+
+
 
     private void clearFields() {
         loadDataToComboBox();
@@ -279,7 +320,6 @@ public class PanelLapPhieuThuTien extends JPanel {
         textField_hotenchuxe.setText("");
         textField_sodienthoai_phieuthutien.setText("");
         textField_email_phieuthutien.setText("");
-        textField_sotienthu.setText("");
         textField_ngaythutien_phieuthutien.setText("");
         textField_sotienno_phieuthutien.setText("");
     }
@@ -306,7 +346,6 @@ public class PanelLapPhieuThuTien extends JPanel {
             logo.setAlignment(Element.ALIGN_LEFT);
             document.add(logo);
 
-
             // title
             Paragraph title = new Paragraph("Phiếu Thu Tiền", titleFont);
             title.setAlignment(Element.ALIGN_CENTER);
@@ -319,6 +358,7 @@ public class PanelLapPhieuThuTien extends JPanel {
 
             document.add(new Paragraph(" "));
 
+            // Bảng vật tư phụ tùng
             PdfPTable tableVTPT = new PdfPTable(5);
             tableVTPT.setWidthPercentage(100);
             tableVTPT.setSpacingBefore(10f);
@@ -335,16 +375,20 @@ public class PanelLapPhieuThuTien extends JPanel {
             tableVTPT.addCell(new PdfPCell(new Paragraph("Số lượng", headerFont)));
             tableVTPT.addCell(new PdfPCell(new Paragraph("Thành tiền", headerFont)));
 
+            double tongTienVTPT = 0; // Tổng tiền VTPT
+            DecimalFormat df = new DecimalFormat("#,###"); // Khởi tạo DecimalFormat
+
             for (CTSuDungVTPT vtpt : ctSuDungVTPTList) {
                 tableVTPT.addCell(new PdfPCell(new Paragraph(vtpt.getMaVTPT(), contentFont)));
                 tableVTPT.addCell(new PdfPCell(new Paragraph(vtpt.getTenVTPT(), contentFont)));
-                tableVTPT.addCell(new PdfPCell(new Paragraph(String.valueOf(vtpt.getDonGiaBan()), contentFont)));
+                tableVTPT.addCell(new PdfPCell(new Paragraph(df.format(vtpt.getDonGiaBan()), contentFont)));
                 tableVTPT.addCell(new PdfPCell(new Paragraph(String.valueOf(vtpt.getSoLuongSuDung()), contentFont)));
-                tableVTPT.addCell(new PdfPCell(new Paragraph(String.valueOf(vtpt.getThanhTien()), contentFont)));
+                tableVTPT.addCell(new PdfPCell(new Paragraph(df.format(vtpt.getThanhTien()), contentFont)));
+                tongTienVTPT += vtpt.getThanhTien();
             }
-
             document.add(tableVTPT);
 
+            // Bảng tiền công
             PdfPTable tableTienCong = new PdfPTable(2);
             tableTienCong.setWidthPercentage(100);
             tableTienCong.setSpacingBefore(10f);
@@ -358,12 +402,20 @@ public class PanelLapPhieuThuTien extends JPanel {
             tableTienCong.addCell(new PdfPCell(new Paragraph("Tên TC", headerFont)));
             tableTienCong.addCell(new PdfPCell(new Paragraph("Chi phí TC", headerFont)));
 
+            double tongTienTienCong = 0; // Tổng chi phí tiền công
+
             for (SuDungTienCong tc : suDungTienCongList) {
                 tableTienCong.addCell(new PdfPCell(new Paragraph(tc.getTenTC(), contentFont)));
-                tableTienCong.addCell(new PdfPCell(new Paragraph(String.valueOf(tc.getChiPhiTC()), contentFont)));
+                tableTienCong.addCell(new PdfPCell(new Paragraph(df.format(tc.getChiPhiTC()), contentFont)));
+                tongTienTienCong += tc.getChiPhiTC();
             }
-
             document.add(tableTienCong);
+
+            // Tính tổng tiền
+            double tongTien = tongTienVTPT + tongTienTienCong;
+
+            // Thêm tổng tiền vào tài liệu
+            document.add(new Paragraph("Tổng tiền: " + df.format(tongTien) + " VND", contentFont));
 
             document.add(new Paragraph("Ngày thu tiền: " + new SimpleDateFormat("dd/MM/yyyy").format(phieuThuTien.getNgayThuTien()), contentFont));
 
@@ -374,5 +426,7 @@ public class PanelLapPhieuThuTien extends JPanel {
             JOptionPane.showMessageDialog(this, "Lỗi khi in phiếu thu: " + e.getMessage());
         }
     }
+
+
 
 }
